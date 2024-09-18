@@ -1,0 +1,1606 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --bg-color: #000000;
+    --txt-color: #ededed;
+    --logo-color: #68D2E8;
+    --primary-color: #03AED2;
+    --secondary-color: #00B894;
+    --accent-color: #FF7675;
+    --card-background: #2D2D3F;
+}
+
+body {
+    position: relative;
+    /* overflow-x: hidden; */
+    background: black;
+    color: var(--txt-color);
+    line-height: 1.6;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+    background-color: #051224;
+}
+
+::-webkit-scrollbar-thumb{
+    width: 8px;
+background-color: #057efc;
+border-radius: 50px;
+}
+
+header {
+    background: var(--bg-color);
+    min-height: 100vh;
+    width: 100%;
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+header{
+    position: relative;
+    z-index: 2;
+    
+}
+main{
+    z-index: 2;
+}
+
+
+.text-content h1{
+    position: relative;
+    z-index: 2;
+}
+
+#particles-js{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 0;
+
+}
+
+
+.hero {
+    position: relative;
+    z-index: 1; 
+}
+/* -------------------navBar section css starts----------------- */
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1% 8%;
+    overflow-x: hidden;
+}
+
+#parent {
+    font-size: 1rem;
+    display: inline-block;
+    overflow: hidden;
+    color: orangered;
+    font-family: "Irish Grover", sans-serif;
+    letter-spacing: 1px;
+}
+
+.logo {
+    font-size: 2rem;
+    line-height: .8;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+
+}
+
+#tagline {
+    font-size: .5rem;
+    overflow: hidden;
+    color: #057efc;
+    margin-top: 5px;
+   text-align: right;   
+
+}
+
+.nav-box {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-links {
+    width: 90%;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-links a {
+    display: inline-block;
+    color: var(--txt-color);
+    font-weight: 700;
+    padding: 1px 0px;
+    position: relative;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.nav-links a::after {
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: white;
+    display: block;
+    margin: auto;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    opacity: 1;
+    width: 100%;
+}
+
+.nav-links a:last-child {
+    padding: 10px 15px;
+}
+
+.nav-links a:last-child:hover::after {
+    opacity: 0;
+    width: 0%;
+}
+
+.cta-btn {
+    background-image: linear-gradient(to right, #047efc, 0%, #26a0da  51%, #12488f 100%);
+    border-color: #057efc;
+    margin: 10px;
+    padding: 15px 35px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    font-weight: 900;
+    box-shadow: 0px 0px 20px #26a0da;
+    animation: moving .7s linear infinite alternate;
+    z-index: 1;
+}
+
+@keyframes moving {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+
+.cta-btn:first-child {
+    animation: unset;
+    box-shadow: unset;
+}
+
+.cta-btn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.2);
+}
+
+
+
+
+#menu-icon {
+    display: none;
+}
+
+
+/* -------------------main section css starts----------------- */
+main {
+    padding: 1% 8%;
+    padding-top: 50px;
+}
+
+#join{
+    font-size: 50px;
+}
+
+#mc {
+    font-family: 'Irish Grover', sans-serif;
+    color: orangered;
+    text-shadow: 0 0 25px orangered;
+    font-weight: 900;
+}
+
+#startHere,
+#bf {
+    display: inline-block;
+    font-weight: 800;
+    animation: txt 1s linear infinite alternate;
+}
+
+@keyframes txt {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.4);
+    }
+}
+
+#startHere {
+    background: -webkit-linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: unset;
+}
+
+#bf {
+    background: -webkit-linear-gradient(#FFD200, #F7971E);
+    ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px #FFE53B;
+}
+
+.hero {
+    width: 70%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 100px 0px #0155cb;
+    margin: 50px 0;
+    transition: 1s linear;
+    /* border: 2px solid #0155cb; */
+}
+
+.hero:hover {
+    transform: scale(1.1);
+}
+
+
+h1,
+span {
+    font-size: 7vmin;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+
+}
+
+h1 span {
+    color: #03AED2;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+
+
+
+.btn-box {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+
+#countdown-container {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.2rem;
+
+}
+
+#countdown-button {
+    position: relative;
+    overflow: hidden;
+    background: #ee0979;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+
+}
+
+#countdown-text{
+    font-family: "Montserrat" ,sans-serif;
+    text-transform: lowercase;
+}
+
+#countdown-button:hover {
+    background: #ff4b1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    transform: scale(1.05);
+    text-transform: uppercase;
+}
+
+#countdown-button::after {
+    content: 'Register Now';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ff4b1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#countdown-button:hover::after {
+    opacity: 1;
+}
+
+/* -------------------header section css end----------------- */
+
+/* Styles for other sections */
+/* ------------------- section css start----------------- */
+
+section {
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    padding: 3rem 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #0155cb;
+}
+
+
+
+section h3 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+section.animate {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.5s forwards;
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.course-levels,
+.curriculum-grid,
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+ 
+}
+
+
+.level,
+.curriculum-item,
+.benefit {
+    background: linear-gradient(262.865deg, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 100%);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s ;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    flex: 1 1 300px;
+    max-width: 300px;
+
+}
+
+
+.level:hover,
+.curriculum-item:hover,
+.benefit:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0px 10px #0155cb;
+    border: 1px solid #0155cb;
+}
+
+
+
+
+
+
+
+.level h3,
+.curriculum-item h3,
+.benefit h3 {
+    color: #0155cb;
+    margin-bottom: 1rem;
+}
+
+
+
+.level img,
+.curriculum-item img,
+.benefit img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    display: block;
+    text-align: center;
+}
+
+
+
+
+/* -------------------about section css end----------------- */
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* -------------------curriculum-item section css ----------------- */
+
+
+.img-text {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+}
+
+
+.img-text img {
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.curriculum-item:nth-child(7) .img-text {
+    width: 100px;
+}
+
+
+.curriculum-item:nth-child(8) .img-text,
+.curriculum-item:nth-child(9) .img-text,
+.curriculum-item:nth-child(10) .img-text,
+.curriculum-item:nth-child(11) .img-text {
+    width: 150px;
+}
+
+
+
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.curriculum-item {
+    background: linear-gradient(262.865deg, rgb(25, 25, 25) 0%, rgb(10, 10, 10) 100%);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+}
+
+.curriculum-item img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+
+/* -------------------benefit section css end----------------- */
+
+.benefit i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+
+/* -------------------market analysis section css ----------------- */
+
+#market-analysis {
+    max-width: 700px;
+    margin: 20px auto;
+    /* border: 2px solid red; */
+}
+
+.price-table {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: .5px solid #fff;
+    box-shadow: 0 0 20px #b0b3b5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align:left;
+    padding: 10px;
+}
+tbody{
+    position: relative;
+}
+
+tbody::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:1px;
+    height: 100%;
+    background-color: rgb(14, 13, 13);
+    z-index: 0;
+}
+
+thead {
+    background-color: #000000;
+    /* padding: 10px 30px; */
+}
+
+th {
+    padding: 25px 50px;
+}
+
+th:first-child {
+    color: #ffffff;
+}
+
+th:last-child {
+    color: #ff6600;
+}
+
+td {
+    padding: 10px 50px;
+    color: black;
+}
+
+td:last-child {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.total {
+    background-color: #000000;
+    padding: 15px;
+    text-align: center;
+}
+
+#total-price{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+.total-label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.offer {
+    color: #ff6600;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.offer strong {
+    font-size: 1.2em;
+}
+/* 
+#market-analysis {
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(#006eff, #030915);
+    box-shadow: 0 0 25px #0155cb;
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin: 40px auto;
+    width: 70%;
+}
+
+#market-analysis h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#market-analysis h3 {
+    color: #ededed;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+#market-analysis table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#market-analysis th,
+#market-analysis td {
+    padding: 12px;
+    text-align: left;
+}
+
+#market-analysis th {
+    background-color: #03AED2;
+    color: white;
+}
+
+
+.total {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.total p:first-child {
+    text-decoration: line-through;
+    color: red;
+    font-weight: 800;
+}
+
+.total p {
+    color: gold;
+    font-weight: 800;
+
+}
+
+
+
+.total p {
+    margin: 5px 0;
+}
+
+.offer {
+    color: #03AED2;
+    font-weight: bold;
+    font-size: 2rem;
+} */
+
+
+
+
+/* -------------------banner section css ----------------- */
+
+
+#banner img{
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #057efc;
+    height: 100%;
+    transition: 0.3s linear;
+}
+
+#banner img:hover{
+    transform: scale(1.05);
+}
+
+
+
+/* -------------------register section css ----------------- */
+
+
+#register form {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: transparent;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+#register form input {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--bg-color);
+    border: 1px solid var(--primary-color);
+    color: #ededed;
+}
+
+#register form input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#register form button {
+    background: linear-gradient(45deg, #10228b, #26a0da);
+    color: #ededed;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#register form button:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* -------------------register section css ----------------- */
+
+#register {
+
+    padding: 4rem 0rem;
+    text-align: center;
+
+}
+
+#register h2 {
+    margin-bottom: 1rem;
+
+}
+
+#register p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+#registerForm {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+}
+
+.form-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--primary-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus,
+.form-group input:valid {
+    outline: none;
+    border-bottom-color: var(--secondary-color);
+}
+
+.form-group input:focus+label,
+.form-group input:valid+label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.cta-button {
+    background-image: linear-gradient(to right, #047efc, 0%, #26a0da  51%, #12488f 100%);
+    border-color: #057efc;
+    margin: 10px;
+    padding: 15px 35px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    font-weight: 900;
+    box-shadow: 0px 0px 20px #26a0da;
+    animation: moving .7s linear infinite alternate;
+    z-index: 1;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+#register {
+    background: transparent;
+    padding: 4rem 2rem;
+    border-radius: 0px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#registerForm {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    /* padding: 12px 20px; */
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-bottom-color: #0155cb;
+    box-shadow: 0 5px 10px #0155cb;
+}
+
+.form-group label {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus+label,
+.form-group input:valid+label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: #0155cb;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #0155cb, #0155cb);
+    border: none;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 5px 15px #0155cb;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px #0155cb;
+}
+#price{
+    font-family: "Montserrat" , sans-serif ;
+    color: white;
+    font-style: italic;
+    text-shadow: 0 0 25px #fff;
+    animation: moving .7s linear infinite alternate;
+    transition: 0.5s ease;
+    display: inline-block;
+}
+
+@keyframes movt {
+    from{
+        transform: translateX(0);
+    }to{
+        transform: translateX(-5px);
+    }
+    
+}
+
+#only{
+    font-family: "Montserrat" , sans-serif ;
+    color: orangered;
+    font-style: italic;
+    text-shadow: 0 0 25px orangered;
+    animation: movt .7s linear infinite alternate;
+    transition: 0.5s ease;
+    display: inline-block;
+}
+
+
+
+/* -------------------faq section css ----------------- */
+
+
+#faq h2 {
+    text-transform: uppercase;
+}
+
+#faq h3{
+    text-transform: capitalize;
+}
+
+#faq {
+    padding: 4rem 2rem;
+    transition: 0.3s linear;
+}
+
+
+
+.faq-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    transition: 0.3s linear;
+}
+
+
+.faq-item {
+    background: var(--logo-color);
+    border: 1px solid #0155cb;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: 0.3s linear;
+    text-align: left;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.faq-answer {
+    padding: 0 1rem 1rem;
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+
+.faq-item {
+    background-color: transparent;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover{
+    box-shadow: 0 0 10px #0155cb;
+
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-toggle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active {
+    background-color: transparent;
+}
+
+.faq-item.active .faq-answer {
+    padding: 1rem;
+    max-height: 1000px;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+
+/* -------------------footer section css ----------------- */
+
+footer {
+    background-image: linear-gradient(#047efc, #12488f);
+    color: var(--txt-color);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-section:first-child {
+    text-align: left;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    color: var(--txt-color);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: yellow;
+}
+
+
+
+
+
+/* ----------------- */
+
+
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-animate.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-animate-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-animate-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* -------------------------------- */
+
+
+/* ------------------------------ */
+
+.payment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.qr-code img {
+    max-width: 300px;
+    margin: 2rem 0;
+}
+
+.payment-instructions {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.payment-instructions h2 {
+    margin-bottom: 1rem;
+}
+
+.payment-instructions ol {
+    padding-left: 1.5rem;
+}
+
+.payment-instructions li {
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
+.whatsapp {
+    padding: 15px 45px;
+    width: 250px;
+    background-color: green;
+    outline: none;
+    border: 1px solid green;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.whatsapp a {
+    color: white;
+}
+
+.whatsapp:hover {
+    transform: translateY(-10px);
+
+}
+
+
+.certificate-container{
+    padding: 3% 2% 0;
+}
+
+.certificate-container img{ 
+    max-width: 50%;
+    box-shadow: 0 0 30px #057efc;
+    border-radius: 5px;
+}
+
+.certificate-container img{
+    /* border: 2px solid red; */
+    animation: cert 1s alternate infinite;
+}
+@keyframes cert {
+
+    from{
+        transform: scale(1);
+    }to{
+        transform: scale(1.1);
+    }
+    
+}
+
+
+@media only screen and (max-width: 768px) {
+    * {
+        overflow-x: hidden;
+        cursor: none;
+    }
+    #front{
+        font-size: 20px;
+    }
+
+
+    /* ---------mobile navbar css starts-----------  */
+
+    .navBar {
+        padding: 10% 8%;
+    }
+
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #0155cb;
+    }
+    .cta-btn:first-child {
+        box-shadow: 0px 0px 20px #26a0da;
+        animation: moving .7s linear infinite alternate;
+    }
+
+    .nav-box {
+        position: absolute;
+        top: 0;
+        width: 65%;
+        right: -500px;
+        height: 100vh;
+        background-image: linear-gradient(#091c37, #000000);
+        flex-direction: column;
+        transition: 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: unset;
+        z-index: 3;
+    }
+
+    .nav-links {
+        text-align: left;
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-top: 80px;
+    }
+
+    #menu-icon {
+        display: block;
+        font-size: 0;
+        position: relative;
+        width: 30px;
+        height: 24px;
+        z-index: 3;
+    }
+
+    #menu-icon span {
+        display: block;
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: white;
+        border-radius: 2px;
+        opacity: 1;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    #menu-icon span:nth-child(1) {
+        top: 0px;
+    }
+
+    #menu-icon span:nth-child(2) {
+        top: 10px;
+    }
+
+    #menu-icon span:nth-child(3) {
+        top: 20px;
+    }
+
+    #menu-icon.open span:nth-child(1) {
+        top: 10px;
+        transform: rotate(45deg);
+    }
+
+    #menu-icon.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-icon.open span:nth-child(3) {
+        top: 10px;
+        transform: rotate(-45deg);
+    }
+
+
+    /* ---------mobile navbar css starts-----------  */
+
+    main {
+        padding: unset;
+        padding-top: 20px;
+    }
+
+    h1 {
+        padding: 1% 8%;
+        font-size: 7vmin;
+    }
+
+    .hero {
+        width: 85%;
+    }
+
+
+
+    .btn-box {
+        width: 100%;
+        padding: 20px;
+    }
+
+
+    .level,
+    .curriculum-item,
+    .benefit{
+        transform: unset;  
+        border: 1px solid #0155cb;
+        /* box-shadow: 0 0px 10px #0155cb; */
+    }    
+/* .level:hover,
+.curriculum-item:hover,
+.benefit:hover{
+    transform: unset;  
+} */
+
+
+#about ,#benefits {
+    padding: 0;
+}
+
+
+.benefits-grid,.course-levels{
+    padding: 0;
+    padding: 50px 0;
+    overflow: hidden;
+
+}
+
+
+
+
+.curriculum-item:hover{
+
+    transform: scale(1.1);
+
+}
+
+table{
+    font-size: 10px;
+}
+
+th{
+
+    padding: 10px 20px;
+}
+
+td {
+    padding: 5px 20px;
+    color: black;
+}
+.offer{
+    font-size: 1rem;
+}
+
+tbody::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+    width:1px;
+    height: 100%;
+    background-color: rgb(14, 13, 13);
+    z-index: 0;
+}
+
+    /* #market-analysis {
+        padding: 40px 20px;
+        margin: 40px auto;
+        width: 90%;
+
+    }
+
+    #market-analysis table {
+        font-size: 0.8rem;
+    }
+
+    #market-analysis th,
+    #market-analysis td {
+        padding: 8px;
+    } */
+
+    #banner{
+        padding: 20px;
+        margin: 0;
+    }
+
+    .curriculum-grid {
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+
+    #certificate{
+
+        padding: 0%;
+    }
+
+    #certificate img {
+        max-width: 100%;
+        height: auto;
+
+    }
+    .certificate-container{
+        padding: 5%;
+    }
+.certificate-container img{
+    /* border: 2px solid red; */
+    animation: unset;
+    transition: .3s ease;
+
+}
+.certificate-container img:hover{
+    transform: scale(1.05);
+
+}
+
+
+
+    #register {
+        background: transparent;
+        padding: 4rem .2rem;
+        border-radius: 0px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    #registerForm {
+        padding: 0;
+    }
+
+
+    footer {
+        padding: 5%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+    .faq-question h3 {
+        margin: 0;
+        font-size: .9rem;
+        width: 95%;
+    }
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        cursor: none;
+    }
+    
+    .faq-toggle{
+        display: inline-block;
+    }
+    .menu-icon{
+        overflow: hidden;
+        
+    }
+    .bx-menu{
+        overflow: hidden;
+    }
+    .countdown-container{
+        overflow: hidden;
+    }
+    #middle{
+        /* border: 1px solid  red; */
+        grid-column: 1 / -1; /* Span across both columns */
+        justify-self: center;
+        align-self: center;
+        width: 50%;
+       
+    }
+    section h2{
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        padding: 3rem .5rem 0;
+    }
+
+    #countdown-button,#countdown-text{
+        overflow: hidden;
+        /* color: #051224 */
+    }
+
+    #banner img{
+        width: 100%;
+    }
+    
+
+
+
+}
+

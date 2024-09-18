@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/2798949aa6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <div id="profileForm" class="container">
+            <h1>Student Profile Form</h1>
+            <form>
+                <div class="input-field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <span id="nameError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <span id="phoneError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <span id="emailError" class="error"></span>
+                </div>
+                <div class="input-field">
+                    <label for="studentType">Student Type</label>
+                    <select id="studentType" name="studentType" required>
+                        <option value="">Select Student Type</option>
+                        <option value="regular">Regular Student</option>
+                        <option value="jntukBtech">Jntuk Btech Student</option>
+                    </select>
+                    <span id="studentTypeError" class="error"></span>
+                </div>
+                <div id="jntukBtechFields" class="hidden">
+                    <div class="input-field">
+                        <label for="college">College Name</label>
+                        <input type="text" id="college" name="college">
+                        <span id="collegeError" class="error"></span>
+                    </div>
+                    <div class="input-field">
+                        <label for="branch">Branch</label>
+                        <input type="text" id="branch" name="branch">
+                        <span id="branchError" class="error"></span>
+                    </div>
+                    <div class="input-field">
+                        <label for="graduationYear">Year of Graduation</label>
+                        <input type="number" id="graduationYear" name="graduationYear" min="2020" max="2030">
+                        <span id="graduationYearError" class="error"></span>
+                    </div>
+                </div>
+                
+                <div id="profilePicPreview" class="hidden">
+                    <h2>Preview Profile Picture</h2>
+                    <img id="previewProfilePic" src="" alt="Preview Profile Picture">
+                </div>
+
+                <button type="submit" id="submitBtn">Submit</button>
+                <span id="submitError" class="error"></span>
+            </form>
+            <div id="profilePicSelection">
+                <h2>Select Profile Picture</h2>
+                <div id="picOptions"></div>
+            </div>
+        </div>
+
+        <div id="staticProfile" class="container hidden">
+            <div id="profileHeader">
+                <h2>Your Profile</h2>
+                <button id="editProfileBtn">Edit Profile</button>
+            </div>
+            <div id="profileInfo">
+                <img id="profilePic" src="" alt="Profile Picture">
+                <div>
+                    <p><strong>Name:</strong> <span id="displayName"></span></p>
+                    <p><strong>Phone Number:</strong> <span id="displayPhone"></span></p>
+                    <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+                    <div id="jntukBtechInfo" class="hidden">
+                        <p><strong>College Name:</strong> <span id="displayCollege"></span></p>
+                        <p><strong>Branch:</strong> <span id="displayBranch"></span></p>
+                        <p><strong>Year of Graduation:</strong> <span id="displayGraduationYear"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="profileActions">
+                <a href="https://manaclg.com/" id="academicProfileBtn" target="_blank">Academic Profile</a>
+            </div>
+            <div id="toolsForYou">
+                <h2 id="toolsforu">Tools for You</h2>
+                <div class="tool-grid">
+                    <a href="https://notepad-by-gova.netlify.app/" class="tool">Note Pad</a>
+                    <a href="https://todolist-bygova.netlify.app/" class="tool">To Do List</a>
+                    <a href="https://calculatorapp-bygova.netlify.app/" class="tool">Calculator</a>
+                    <a href="https://agecalculator-by-gova.netlify.app/" class="tool">Age Calculator</a>
+                    <a href="https://www.death-clock.org/" class="tool">Life Calculator</a>
+                    <a href="https://password-generator-by-gova.netlify.app/" class="tool">Password Generator</a>
+                    <a href="https://toggl.com/track/online-timer/" class="tool">Stop Watch</a>
+                    <a href="https://qrcode-generator-by-gova.netlify.app/" class="tool">QR Generator</a>
+                    <a href="https://text-to-voice-converter-bygova.netlify.app/" class="tool">Text to Speech Converter</a>
+                </div>
+            </div>
+            
+            <section id="projects" class="projects hidden">
+                <h2 class="heading2">Updates</h2>
+                <!-- <h2 class="heading">Join Our <span>Channels</span></h2> -->
+                <div id="container" class="container2">
+                    <!-- Project cards will be dynamically generated here -->
+                </div>
+            </section>
+     
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

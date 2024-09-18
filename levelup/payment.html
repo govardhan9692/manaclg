@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Payment - Level Up by ManaClg</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Complete Your Payment</h1>
+        <p>Thank you for registering! To complete your enrollment, please pay the course fee of 999 Rs using the QR code below.</p>
+        
+        <div class="qr-code">
+            <img src="./images/qrforcourse.jpeg" alt="Payment QR Code">
+        </div>
+        
+        <p>You can pay using PhonePe, Google Pay, Paytm, or any UPI app.</p>
+        
+        <div class="form-group">
+            <input type="text" id="transactionId" name="transactionId" required>
+            <label for="transactionId">Enter Transaction ID</label>
+        </div>
+        
+        <button id="submitTransaction" class="cta-button">Submit Payment</button><br><br>
+        <button class="whatsapp"><a href="https://wa.me/9849834102">WhatsApp</a> </button>
+        
+        <div class="payment-instructions">
+            <h2>Important Instructions:</h2>
+            <ol>
+                <li>Make the payment of 999 Rs using the QR code above.</li>
+                <li>Enter the transaction ID in the field provided.</li>
+                <li>Take a screenshot of your payment confirmation.</li>
+                <li>Send the screenshot to <strong>9849834102</strong> on WhatsApp for verification.</li>
+                <li>Once verified, you will receive your login credentials via email.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>

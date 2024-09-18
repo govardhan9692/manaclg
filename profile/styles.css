@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a1f2d;
+    color: #ededed;
+    text-transform: capitalize;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-links a {
+    color: #333;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #666;
+}
+
+/* Main Content */
+main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.container {
+    background-color: #081b29;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+#profileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#profileActions {
+    display: flex;
+    margin-top: 20px;
+}
+
+#academicProfileBtn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+}
+
+#academicProfileBtn:hover {
+    background-color: #45a049;
+}
+
+#profileInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#profilePic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+#picOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#picOptions img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#previewProfilePic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.tool {
+    background-color: #081b29;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tool:hover {
+    background-color: #000000;
+    transform: scale(1.05);
+    border: 1px solid #fff;
+}
+
+.image-container {
+    display: inline-block;
+}
+
+.scrollable {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.image-container img {
+    display: inline-block;
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+#toolsforu{
+    text-align: center;
+}
+
+.tool-grid a.tool {
+    display: block;
+    background-color: #093942;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    color: inherit;
+    text-decoration: none;
+    transition:  0.3s;
+}
+
+.tool-grid a.tool:hover {
+    background-color: #032d34;
+    transform: scale(1.05);
+    border: 1px solid #fff;
+}
+
+a {
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Projects section styles */
+#projects {
+    padding-bottom: 4rem;
+}
+
+#projects .heading {
+    font-size: 3rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#projects .heading2 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 2rem 0 0rem 0;
+}
+
+#projects .heading span {
+    color: #00abf0;
+}
+
+#projects .container2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 2rem;
+    padding: 0 9%;
+}
+
+#projects .projects-container {
+    width: 100%;
+    height: 20rem;
+    text-align: center;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+#projects .projects-container:hover {
+    transform: translateY(-10px);
+}
+
+#projects .img-box {
+    border: 0.2rem solid #00abf0;
+    border-radius: 1rem;
+    width: 100%;
+    height: 15rem;
+    transition: 1s;
+    overflow: hidden;
+}
+
+#projects .projects-container .img-box img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 1rem;
+    object-fit: cover;
+    transition: 1s;
+}
+
+#projects .projects-container .img-box img:hover {
+    opacity: 0.5;
+    border-radius: 0rem;
+    transform: scale(1.1);
+}
+
+#projects .img-box:hover {
+    border-radius: 0rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 991px) {
+    #projects .container2 {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 4%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+
+    #profileInfo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #profilePic {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .tool-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #projects .container2 {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 4%;
+        /* width: 50%; */
+    }
+
+    #projects .projects-container {
+        height: 10rem;
+        font-size: .65rem;
+    }
+
+    #projects .heading {
+        font-size: 2rem;
+    }
+}
+

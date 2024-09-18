@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disclaimer - Manaclg</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- <header>
+    <nav>
+      <div class="logo">
+        <a href="#">Manaclg</a>
+      </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Academics</a></li>
+        <li><a href="#">Career Development</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <i class='bx bxs-moon' id="mode"></i>
+      </ul>
+    </nav>
+  </header> -->
+
+  <main>
+    <section class="disclaimer">
+      <h1>&#9888; Disclaimer &#9888;</h1>
+      <p>At Manaclg, our mission is to assist students in their academic and career development by providing access to valuable resources. Some of the content, such as videos and PDFs, are gathered from various sources across the internet to facilitate effective and pleasant learning experiences. Primarily, videos are embedded using YouTube's official embed links.</p>
+
+      <h2>Our Purpose</h2>
+      <p>The main aim of Manaclg is to help students succeed in their academics and careers. While the internet offers a wealth of free resources, many students struggle to find the most useful content and often waste time searching for it. We address this by conducting thorough research to identify and compile the best resources for each topic.</p>
+
+      <div class="purpose-sections">
+        <div class="academics">
+          <h3>For Academics</h3>
+          <p>We meticulously research and curate lecture videos from YouTube that align with specific syllabi. Our goal is to provide students with the most relevant and high-quality lecture videos available online.</p>
+        </div>
+        <div class="career-development">
+          <h3>For Career Development</h3>
+          <p>Similarly, we develop structured courses by researching and selecting the best available resources on the internet. These resources are organized to help students enhance their skills and advance their careers. We have a dedicated section for career development, which includes all necessary materials that have been validated and verified by our team.</p>
+        </div>
+      </div>
+
+      <h2>Our Vision</h2>
+      <p>We aim to develop and empower individuals, thereby contributing to the betterment of the world. Manaclg is created for the people, by the people, with the goal of transforming education and extending its boundaries.</p>
+
+      <h2>Important Notice</h2>
+      <p>While we have clearly stated our intentions, if you find any of your resources on Manaclg and wish to have them removed, please contact us. We will promptly remove the requested content.</p>
+      <p>Before requesting removal, please consider:</p>
+      <ul>
+        <li>Let your efforts contribute to global development.</li>
+        <li>Let your contributions help others.</li>
+        <li>The principle of equivalent exchange: you receive what you give.</li>
+      </ul>
+      <p>If you still need the content removed, please let us know, and we will comply.</p>
+      <p>Thank you for your understanding and cooperation.</p>
+
+      <p>Manaclg - for the people, by the people. Let's change the way of education and go beyond.</p>
+    </section>
+  </main>
+  <section class="contact-form">
+    <h2>Contact Us</h2>
+    <form id="contactForm" name="submit-to-google-sheet">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="enter your name ">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="enter your mail">
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required placeholder="enter message in detail"></textarea>
+      </div>
+      <div>
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url" placeholder="paste that page your url">
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <!-- <footer>
+    
+  </footer> -->
+
+  
+  <script>
+    
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw3vcs14S20SGz48mkyImvwIqU3DS9ONdP84qfHwZC9UJ5GvdHBIa-vXx_nJ_-1PIRRvw/exec';
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+        alert("Your request is submitted");
+    })
+    
+  </script>
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>

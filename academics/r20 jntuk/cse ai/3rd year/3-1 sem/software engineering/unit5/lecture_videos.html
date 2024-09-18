@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNTUK SE Lecture Videos R20 - Mana Clg</title>
+    <meta name="description"
+        content="Watch comprehensive SE  lecture videos for JNTUH R20 students at Mana Clg. Our videos cover key topics and concepts to help you understand the subject better.">
+    <!-- <link rel="canonical" href="https://manaclg.com/jntuh-r20-SE -lecture-videos"> -->
+    <link rel="stylesheet" href="../../../../assests/lecture video page assets/lecturervideos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <!-- header design -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleLeftSidebar()">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+
+        <div id="logo-section"><a href="../../../../../../../index.html" class="logo">MANACLG</a>
+            <nav class="social-media">
+                <div class="sm"><a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a></div>
+                <div class="sm"><a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i
+                            class='bx bxl-instagram'></i></a></div>
+                <div class="sm"><a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i
+                            class='bx bxl-whatsapp'></i></a></div>
+                <div class="sm"><a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i
+                            class='bx bxl-youtube'></i></a></div>
+                <div class="sm"><a href="https://www.linkedin.com/in/mana-clg-006532295/"><i
+                            class='bx bxl-linkedin'></i></a></div>
+                <div class="sm"><a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div class="sm"><a href="https://www.facebook.com/profile.php?id=61551901873724"><i
+                            class='bx bxl-facebook'></i></a></div>
+                <div class="sm"><a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a></div>
+
+
+            </nav>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+            <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+            <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+            <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                Support</a>
+            <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+            <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+            <a href="#"><i class='bx bxs-moon' id="mode"></i></a>
+        </nav>
+        <div class="open-icon" onclick="openSidebar()"><span class="material-symbols-outlined menu-icon" id="menu">
+                menu
+            </span></div>
+        <nav class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()"><span class="material-symbols-outlined">
+                    close
+                </span></div>
+            <div class="box">
+                <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+                <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+                <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+                <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                    Support</a>
+                <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+                <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+                <a href="#"><i class='bx bxs-moon' id="mode2"></i></a>
+                <div class="side-bar-copyrights">
+                    <p>&copy; <span id="currentYear"></span> , <a href="../../../../../../../index.html">MANACLG</a> .
+                        All rights reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <aside id="options-container" class="left-sidebar collapsed">
+            <a href="../../../../../../../index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="home">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="../../../../../../../updates/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="updates">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updates</span>
+                </div>
+            </a>
+
+            <a href="../../../../../../../levelup/levelup.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="levelup">
+                    <i class="fas fa-level-up-alt"></i>
+                    <span>Level Up</span>
+                </div>
+            </a>
+
+
+            <a href="../../../../../../../profile/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="profile">
+                    <i class="fa fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </aside>
+
+
+        <main class="content">
+
+            <div class="main-content">
+                <pre id="extra-space">
+
+
+                </pre>
+                <section>
+                    <a href="unit5.html" id="back-arrow"><span class="material-symbols-outlined"> arrow_back
+                        </span></a>
+                    <h3 class="title">SE</h3>
+                    <div class="addres">
+                        <p>Unit-5</p>
+                        <p>Lecture Videos</p>
+                    </div>
+                    <div class="container2">
+                        <div id="video_player" class="sticky">
+                            <iframe id="main-Video" width="100%" height="100%"
+                                src="https://www.youtube.com/embed/dRTNrDMoUs0?autoplay=1&mute=1" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="playlistBx">
+                            <div class="header2">
+                                <marquee class="row" id="summary-text" behavior="scroll" direction="left"
+                                    scrollamount="7">SE, syllabus Wise Unit-5 Lecture Videos</marquee>
+                            </div>
+                            <!-- -----------------------------------add button container below------------------------ -->
+                            <div class="button-container">
+                            <details>
+                                <summary>The Golden Rules</summary>
+                                <button onclick="playVideo('4_bthEMox6g?si=mN5ma_ZnM03GbX3o')">Lecture Video</button>
+                                <button onclick="playVideo('PueltTmS5jc?si=TiTRGxHbJOlx6XVv')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>User Interface Analysis and Design</summary>
+                                <button onclick="playVideo('TWbMAaDoXqg?si=BC-DWLtzG6uy_gBC')">Lecture Video</button>
+                                <button onclick="playVideo('UW7qBR_i0CE?si=JFAwErERsmEIL9gs')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Interface Analysis</summary>
+                                <button onclick="playVideo('UMYWBkTTBPw?si=FMIkY6C3Die_-Xcz')">Lecture Video</button>
+                                <button onclick="playVideo('dQcHUyHPlx0?si=4HPe2HlXIFiOWYdw')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Interface Design Steps</summary>
+                                <button onclick="playVideo('dQcHUyHPlx0?si=Qd-SU3OBxiyWfZP6')">Lecture Video</button>
+                                <button onclick="playVideo('UW7qBR_i0CE?si=dkiHuBgt7Wiq_g4f')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>WebApp Interface Design</summary>
+                                <button onclick="playVideo('8-bP6aLYfQs?si=7_w7WPv-YG2Q1k5b')">Lecture Video</button>
+                                <button onclick="playVideo('jVzcYgi4ryw?si=l_jTru74jxJcvsr0')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Design Evaluation</summary>
+                                <button onclick="playVideo('OzAA5DpWUOU?si=COV_0MHnmY-3fSDn')">Lecture Video</button>
+                                <button onclick="playVideo('YER6YUe1DqU?si=ZM1nheQJF5RKO0w4')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Elements of Software Quality Assurance</summary>
+                                <button onclick="playVideo('zWsIYUYrw58?si=ophYsD8NubSMuK9U')">Lecture Video</button>
+                                <button onclick="playVideo('2DrqLIIh6FU?si=6eMZ3zu2v61V7aSZ')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>SQA Tasks</summary>
+                                <button onclick="playVideo('p8SYmtuJv10?si=rmwIbaJIYZZSts4u')">Lecture Video</button>
+                                <button onclick="playVideo('2DrqLIIh6FU?si=14_fVDTH5n8XpCsF')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Goals & Metrics</summary>
+                                <button onclick="playVideo('vwNp3JSCXeQ?si=kHiH0g7ds9lO_GQI')">Lecture Video</button>
+                                <button onclick="playVideo('oAH2IWTpMtI?si=yUZWz_5GfYiHX3tO')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Statistical SQA</summary>
+                                <button onclick="playVideo('D2Y-2RO2fsQ?si=RWa3Zpn7Jd9Pe-g-')">Lecture Video</button>
+                                <button onclick="playVideo('epiJGsajGP4?si=9HxAKjjl32FQR3Iy')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Software Reliability</summary>
+                                <button onclick="playVideo('llBuW8ubd4M?si=9nen3XYkmvehRCPt')">Lecture Video</button>
+                                <button onclick="playVideo('HimAJXtWRkw?si=vZmVjBEvURSqHnaJ')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>A Strategic Approach to Software Testing</summary>
+                                <button onclick="playVideo('BNk7vni-1Bo?si=cIgkzKpbZAYWHtVr')">Lecture Video</button>
+                                <button onclick="playVideo('z9K-IdgiTLM?si=eFg9tPicv7tHZnWf')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Strategic Issues</summary>
+                                <button onclick="playVideo('l-_ekCisJYw?si=ncftI4PUklwUSRS6')">Lecture Video</button>
+                                <button onclick="playVideo('TPldow-RMHM?si=gegvEhGgfDas46W0')">Lecture Video 2</button>
+                            </details><details>
+                                <summary>Test Strategies for Conventional Software</summary>
+                                <button onclick="playVideo('kbFgjpF3WgQ?si=HVMRfUt_GdMgR6WN')">Lecture Video</button>
+                                <button onclick="playVideo('qGg6s6q-Vqo?si=633WYb_Rm1b6b7WL')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Test Strategies for Object-Oriented Software</summary>
+                                <button onclick="playVideo('7_zKXtKD_8o?si=-sYP9a_DfiVjIufH')">Lecture Video</button>
+                                <button onclick="playVideo('J0TdvXJTMqc?si=ZYJM6JJ2uyR6eTfZ')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Test Strategies for WebApps</summary>
+                                <button onclick="playVideo('5fziq0PzUv0?si=cuFry8WMs1FQnuxU')">Lecture Video</button>
+                                <button onclick="playVideo('pY_r-9HYk6A?si=i-wxOxwqpdWCDlCP')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Validation Testing</summary>
+                                <button onclick="playVideo('Rh2Phn0a7Ko?si=wJU-IVBdR3IvuwTm')">Lecture Video</button>
+                                <button onclick="playVideo('bQ_ey8r5fZk?si=ifxe5fHI9ihqxEBO')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>System Testing</summary>
+                                <button onclick="playVideo('bp9qi3R7K0U?si=LmrfuGjSUiaUdfnK')">Lecture Video</button>
+                                <button onclick="playVideo('T0m5xkkXZ7c?si=CL-fZVyZ3rN0FFZM')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>The Art of Debugging</summary>
+                                <button onclick="playVideo('3GNmEbHNxQQ?si=pagqmWOrEqfM6S0B')">Lecture Video</button>
+                                <button onclick="playVideo('WBPcCik1Fbo?si=lduBhwuaNXA2XGQw')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Software Testing Fundamentals</summary>
+                                <button onclick="playVideo('xjd6jToC8kA?si=XCatVfx8fzyXvbhy')">Lecture Video</button>
+                                <button onclick="playVideo('karZkJB-vr8?si=KT4CJSrPrwSLRgSR')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Internal and External Views of Testing</summary>
+                                <button onclick="playVideo('f4a9o-RENoQ?si=qlztaw_LyH483un0')">Lecture Video</button>
+                                <button onclick="playVideo('T0TynxN77oY?si=nazNZI9YBuOrQgmA')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>White-Box Testing</summary>
+                                <button onclick="playVideo('bShnacILi7k?si=YqnwbGGWhaIPqEJN')">Lecture Video</button>
+                                <button onclick="playVideo('KHwN2Rrwh88?si=s3t8lMfKgjdAtGXp')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Basis Path Testing</summary>
+                                <button onclick="playVideo('t-C3Bt7f1M8?si=l7-QEJl1SmIrIDvx')">Lecture Video</button>
+                                <button onclick="playVideo('VulET6ZVImM?si=PiP15jD5AN7kImNP')">Lecture Video 2</button>
+                            </details>
+                                                                          
+                        </div>
+                            <!-- ------------------------------------------------------------ -->
+                        </div>
+                    </div>
+                    <div class="syllabus-container">
+                        <p>Unit-5 Syllabus</p>
+                        <div class="syllabus">
+                            UNIT V
+                            The Golden Rules, User Interface Analysis and Design, Interface Analysis, Interface Design Steps, WebApp 
+                            Interface Design, Design Evaluation, Elements of Software Qualtiy Assurance, SQA Tasks, Goals & 
+                            Metrics, Statistical SQA, Software Reliability, A Strategic Approach to Software Testing, Strategic Issues,Test Strategies for Conventional Software, Test Strategies for Object-Oriented Software, Test Strategies for 
+                            WebApps, Validation Testing, System Testing, The Art of Debugging, Software Testing Fundamentals, 
+                            Internal and External Views of Testing, White-Box Testing, Basis Path Testing.
+                            
+                            
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+
+    <footer>
+        <div class="col">
+            <p>&copy; <span id="currentYear2"></span> , <a href="../../../../../../index.html">MANACLG</a> . All rights
+                reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+        </div>
+        <div class="socialIcons">
+            <a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a>
+            <a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i class='bx bxl-instagram'></i></a>
+            <a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i class='bx bxl-whatsapp'></i></a>
+            <a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.linkedin.com/in/mana-clg-006532295/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61551901873724"><i class='bx bxl-facebook'></i></a>
+            <a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a>
+
+        </div>
+    </footer>
+
+
+
+
+    <script src="../../../../../../../assests/script.js"></script>
+    <script src="../../../../assests/lecture video page assets/lecturevideo.js"></script>
+
+
+</body>
+
+</html>

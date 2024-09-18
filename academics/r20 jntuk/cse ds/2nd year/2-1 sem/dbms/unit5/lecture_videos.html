@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNTUK DBMS Lecture Videos R20 - Mana Clg</title>
+    <meta name="description"
+        content="Watch comprehensive DBMS  lecture videos for JNTUH R20 students at Mana Clg. Our videos cover key topics and concepts to help you understand the subject better.">
+    <!-- <link rel="canonical" href="https://manaclg.com/jntuh-r20-DBMS -lecture-videos"> -->
+    <link rel="stylesheet" href="../../../../assests/lecture video page assets/lecturervideos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <!-- header design -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleLeftSidebar()">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+
+        <div id="logo-section"><a href="../../../../../../../index.html" class="logo">MANACLG</a>
+            <nav class="social-media">
+                <div class="sm"><a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a></div>
+                <div class="sm"><a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i
+                            class='bx bxl-instagram'></i></a></div>
+                <div class="sm"><a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i
+                            class='bx bxl-whatsapp'></i></a></div>
+                <div class="sm"><a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i
+                            class='bx bxl-youtube'></i></a></div>
+                <div class="sm"><a href="https://www.linkedin.com/in/mana-clg-006532295/"><i
+                            class='bx bxl-linkedin'></i></a></div>
+                <div class="sm"><a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div class="sm"><a href="https://www.facebook.com/profile.php?id=61551901873724"><i
+                            class='bx bxl-facebook'></i></a></div>
+                <div class="sm"><a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a></div>
+
+
+            </nav>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+            <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+            <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+            <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                Support</a>
+            <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+            <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+            <a href="#"><i class='bx bxs-moon' id="mode"></i></a>
+        </nav>
+        <div class="open-icon" onclick="openSidebar()"><span class="material-symbols-outlined menu-icon" id="menu">
+                menu
+            </span></div>
+        <nav class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()"><span class="material-symbols-outlined">
+                    close
+                </span></div>
+            <div class="box">
+                <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+                <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+                <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+                <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                    Support</a>
+                <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+                <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+                <a href="#"><i class='bx bxs-moon' id="mode2"></i></a>
+                <div class="side-bar-copyrights">
+                    <p>&copy; <span id="currentYear"></span> , <a href="../../../../../../../index.html">MANACLG</a> .
+                        All rights reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <aside id="options-container" class="left-sidebar collapsed">
+            <a href="../../../../../../../index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="home">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="../../../../../../../updates/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="updates">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updates</span>
+                </div>
+            </a>
+
+            <a href="../../../../../../../levelup/levelup.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="levelup">
+                    <i class="fas fa-level-up-alt"></i>
+                    <span>Level Up</span>
+                </div>
+            </a>
+
+
+            <a href="../../../../../../../profile/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="profile">
+                    <i class="fa fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </aside>
+
+
+        <main class="content">
+
+            <div class="main-content">
+                <pre id="extra-space">
+
+
+                </pre>
+                <section>
+                    <a href="unit5.html" id="back-arrow"><span class="material-symbols-outlined"> arrow_back
+                        </span></a>
+                    <h3 class="title">DBMS</h3>
+                    <div class="addres">
+                        <p>Unit-5</p>
+                        <p>Lecture Videos</p>
+                    </div>
+                    <div class="container2">
+                        <div id="video_player" class="sticky">
+                            <iframe id="main-Video" width="100%" height="100%"
+                                src="https://www.youtube.com/embed/dRTNrDMoUs0?autoplay=1&mute=1" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="playlistBx">
+                            <div class="header2">
+                                <marquee class="row" id="summary-text" behavior="scroll" direction="left"
+                                    scrollamount="7">DBMS, syllabus Wise Unit-5 Lecture Videos</marquee>
+                            </div>
+                            <!-- -----------------------------------add button container below------------------------ -->
+                            <div class="button-container">
+                                <details>
+                                    <summary>Transaction Concept</summary>
+                                    <button onclick="playVideo('eYQwKi7P8MM')">lecture video</button>
+                                    <button onclick="playVideo('Jxa2YJUHSuY')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Transaction State</summary>
+                                    <button onclick="playVideo('UkfWH3RHIJk')">lecture video</button>
+                                    <button onclick="playVideo('INZMaELI5BQ')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Implementation of Atomicity and Durability</summary>
+                                    <button onclick="playVideo('iJXwe_VSo6E')">lecture video</button>
+                                    <button onclick="playVideo('NexweWxGq-k')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Concurrent Executions</summary>
+                                    <button onclick="playVideo('2Um-j_TTlZM')">lecture video</button>
+                                    <button onclick="playVideo('vhUzCJDbTis')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Serializability</summary>
+                                    <button onclick="playVideo('UGA4xjEGi-0')">lecture video</button>
+                                    <button onclick="playVideo('A8s-yQnSNJI')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Recoverability</summary>
+                                    <button onclick="playVideo('6Lr1fAbbWV0')">lecture video</button>
+                                    <button onclick="playVideo('HnVo3_iH76w')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Implementation of Isolation</summary>
+                                    <button onclick="playVideo('-gxyut1VLcs')">lecture video</button>
+                                    <button onclick="playVideo('mxdw35gO-Uo')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Testing for Serializability</summary>
+                                    <button onclick="playVideo('VqpfBwzFWUA')">lecture video</button>
+                                    <button onclick="playVideo('rjmSWYZnEgk')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Failure Classification</summary>
+                                    <button onclick="playVideo('U__Io4IgWIo')">lecture video</button>
+                                    <button onclick="playVideo('k29T3tbwOGo')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Storage</summary>
+                                    <button onclick="playVideo('HnVo3_iH76w')">lecture video</button>
+                                    <button onclick="playVideo('blTkMaz3SYM')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Recovery, and Atomicity</summary>
+                                    <button onclick="playVideo('gk3V11eULnU')">lecture video</button>
+                                    <button onclick="playVideo('HnVo3_iH76w')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Recovery algorithm</summary>
+                                    <button onclick="playVideo('LbbhaybYc5A')">lecture video</button>
+                                    <button onclick="playVideo('gk3V11eULnU')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Indexing Techniques</summary>
+                                    <button onclick="playVideo('uuRf-VEFbco')">lecture video</button>
+                                    <button onclick="playVideo('tssM9hXw8xQ')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>B+ Trees</summary>
+                                    <button onclick="playVideo('jpS8BLb8BgI')">lecture video</button>
+                                    <button onclick="playVideo('nubEiLHOWyM')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>B+ Trees: Search, Insert, Delete algorithm</summary>
+                                    <button onclick="playVideo('b0FYZuPXZps')">lecture video</button>
+                                    <button onclick="playVideo('dnAZAuPiQvk')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>File Organization</summary>
+                                    <button onclick="playVideo('S_P2yyQuB8M')">lecture video</button>
+                                    <button onclick="playVideo('ZLxshWgro9w')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Indexing</summary>
+                                    <button onclick="playVideo('uuRf-VEFbco')">lecture video</button>
+                                    <button onclick="playVideo('A9FfFREor9g')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Cluster Indexes</summary>
+                                    <button onclick="playVideo('Ph656dyoQVA')">lecture video</button>
+                                    <button onclick="playVideo('vE226CgbiV4')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Primary and Secondary Indexes</summary>
+                                    <button onclick="playVideo('wZcV5fT0vj8')">lecture video</button>
+                                    <button onclick="playVideo('NgYiO6vu1zk')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Index data Structures</summary>
+                                    <button onclick="playVideo('lyTPtoBfs9I')">lecture video</button>
+                                    <button onclick="playVideo('PU58ZZ-n5mE')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Hash-Based Indexing</summary>
+                                    <button onclick="playVideo('zz8ZyV9fRQg')">lecture video</button>
+                                    <button onclick="play
+                            Video('4MF1CgTClBQ')">lecture Video in Telugu</button>
+                            </details>
+                            <details>
+                                <summary>Tree-based Indexing</summary>
+                                <button onclick="playVideo('NiW6NI1NEI8')">lecture video</button>
+                                <button onclick="playVideo('5Dq2C5a8KEU')">lecture Video  in Telugu</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Comparison of File Organizations</summary>
+                                <button onclick="playVideo('2Dz7H-eMyJg')">lecture video</button>
+                                <button onclick="playVideo('ZLxshWgro9w')">lecture Video  in Telugu</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Indexes</summary>
+                                <button onclick="playVideo('tssM9hXw8xQ')">lecture video</button>
+                                <button onclick="playVideo('')">lecture Video  in Telugu</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Performance Tuning</summary>
+                                <button onclick="playVideo('8cdu9MINAFA')">lecture video</button>
+                                <button onclick="playVideo('fSk0wdIREJE')">lecture Video  in Telugu</button>
+                            </details>
+                            
+
+                            <!-- ------------------------------------------------------------ -->
+                        </div>
+                    </div>
+                    <div class="syllabus-container">
+                        <p>Unit-5 Syllabus</p>
+                        <div class="syllabus">
+                            UNIT V 
+                            Transaction Concept: Transaction State, Implementation of Atomicity and Durability, Concurrent 
+                            Executions, Serializability, Recoverability, Implementation of Isolation, Testing for Serializability, Failure 
+                            Classification, Storage, Recovery and Atomicity, Recovery algorithm. 
+                            Indexing Techniques: B+ Trees: Search, Insert, Delete algorithms, File Organization and Indexing, Cluster 
+                            Indexes, Primary and Secondary Indexes , Index data Structures, Hash Based Indexing: Tree base Indexing 
+                            ,Comparison of File Organizations, Indexes and Performance Tuning .
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+
+    <footer>
+        <div class="col">
+            <p>&copy; <span id="currentYear2"></span> , <a href="../../../../../../index.html">MANACLG</a> . All rights
+                reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+        </div>
+        <div class="socialIcons">
+            <a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a>
+            <a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i class='bx bxl-instagram'></i></a>
+            <a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i class='bx bxl-whatsapp'></i></a>
+            <a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.linkedin.com/in/mana-clg-006532295/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61551901873724"><i class='bx bxl-facebook'></i></a>
+            <a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a>
+
+        </div>
+    </footer>
+
+
+
+
+    <script src="../../../../../../../assests/script.js"></script>
+    <script src="../../../../assests/lecture video page assets/lecturevideo.js"></script>
+
+
+</body>
+
+</html>

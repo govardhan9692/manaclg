@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Reset and basic styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #00ff9c;
+    background-color: #000;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Header and navigation */
+  header {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 255, 156, 0.3);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-left: 1rem;
+  }
+  
+  nav ul li a {
+    position: relative;
+    padding: 0.5rem;
+  }
+  
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #00ff9c;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  nav ul li a:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Sections */
+  section {
+    padding: 2rem;
+  }
+  
+  .disclaimer {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .disclaimer h1,
+  .disclaimer h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(0, 255, 156, 0.5);
+  }
+  
+  .disclaimer ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+  }
+  
+  .purpose-sections {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .purpose-sections > div {
+    flex: 1;
+    padding: 1rem;
+    background-color: #1a1a1a;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 255, 156, 0.3);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1a1a1a;
+    color: #00ff9c;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 0 5px rgba(0, 255, 156, 0.3);
+  }
+
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .contact-form h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form form div {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-form form input,
+  .contact-form form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .contact-form form textarea {
+    width: 100%;
+    height: 10rem;
+    resize: none;
+  }
+
+  
+  .contact-form form button {
+    padding: 0.5rem 1rem;
+    background-color: #00ff9c;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+    }
+  
+    .purpose-sections {
+      flex-direction: column;
+    }
+  
+    .purpose-sections > div {
+      margin-bottom: 1rem;
+    }
+  }

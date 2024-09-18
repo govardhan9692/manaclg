@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNTUK Big Data Lecture Videos R20 - Mana Clg</title>
+    <meta name="description"
+        content="Watch comprehensive Big Data  lecture videos for JNTUH R20 students at Mana Clg. Our videos cover key topics and concepts to help you understand the subject better.">
+    <!-- <link rel="canonical" href="https://manaclg.com/jntuh-r20-Big Data -lecture-videos"> -->
+    <link rel="stylesheet" href="../../../../assests/lecture video page assets/lecturervideos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <!-- header design -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleLeftSidebar()">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+
+        <div id="logo-section"><a href="../../../../../../../index.html" class="logo">MANACLG</a>
+            <nav class="social-media">
+                <div class="sm"><a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a></div>
+                <div class="sm"><a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i
+                            class='bx bxl-instagram'></i></a></div>
+                <div class="sm"><a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i
+                            class='bx bxl-whatsapp'></i></a></div>
+                <div class="sm"><a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i
+                            class='bx bxl-youtube'></i></a></div>
+                <div class="sm"><a href="https://www.linkedin.com/in/mana-clg-006532295/"><i
+                            class='bx bxl-linkedin'></i></a></div>
+                <div class="sm"><a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div class="sm"><a href="https://www.facebook.com/profile.php?id=61551901873724"><i
+                            class='bx bxl-facebook'></i></a></div>
+                <div class="sm"><a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a></div>
+
+
+            </nav>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+            <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+            <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+            <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                Support</a>
+            <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+            <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+            <a href="#"><i class='bx bxs-moon' id="mode"></i></a>
+        </nav>
+        <div class="open-icon" onclick="openSidebar()"><span class="material-symbols-outlined menu-icon" id="menu">
+                menu
+            </span></div>
+        <nav class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()"><span class="material-symbols-outlined">
+                    close
+                </span></div>
+            <div class="box">
+                <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+                <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+                <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+                <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                    Support</a>
+                <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+                <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+                <a href="#"><i class='bx bxs-moon' id="mode2"></i></a>
+                <div class="side-bar-copyrights">
+                    <p>&copy; <span id="currentYear"></span> , <a href="../../../../../../../index.html">MANACLG</a> .
+                        All rights reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <aside id="options-container" class="left-sidebar collapsed">
+            <a href="../../../../../../../index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="home">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="../../../../../../../updates/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="updates">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updates</span>
+                </div>
+            </a>
+
+            <a href="../../../../../../../levelup/levelup.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="levelup">
+                    <i class="fas fa-level-up-alt"></i>
+                    <span>Level Up</span>
+                </div>
+            </a>
+
+
+            <a href="../../../../../../../profile/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="profile">
+                    <i class="fa fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </aside>
+
+
+        <main class="content">
+
+            <div class="main-content">
+                <pre id="extra-space">
+
+
+                </pre>
+                <section>
+                    <a href="unit3.html" id="back-arrow"><span class="material-symbols-outlined"> arrow_back
+                        </span></a>
+                    <h3 class="title">Big Data</h3>
+                    <div class="addres">
+                        <p>Unit-3</p>
+                        <p>Lecture Videos</p>
+                    </div>
+                    <div class="container2">
+                        <div id="video_player" class="sticky">
+                            <iframe id="main-Video" width="100%" height="100%"
+                                src="https://www.youtube.com/embed/dRTNrDMoUs0?autoplay=1&mute=1" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="playlistBx">
+                            <div class="header2">
+                                <marquee class="row" id="summary-text" behavior="scroll" direction="left"
+                                    scrollamount="7">Big Data, syllabus Wise Unit-3 Lecture Videos</marquee>
+                            </div>
+                            <!-- -----------------------------------add button container below------------------------ -->
+                            <div class="button-container"> 
+                            <details>
+                                <summary>Introduction to Hadoop</summary>
+                                <button onclick="playVideo('jiuShe3p2CU?si=8alstWEh4Cw0pMrC')">Lecture Video</button>
+                                <button onclick="playVideo('iANBytZ26MI?si=FmQecimWRybdEkJi')">Lecture Video 2</button>
+                                <button onclick="playVideo('qj7yIiPKhdQ?si=5CJQ0PER10KM35gt')">Lecture Video 3</button>
+                                <button onclick="playVideo('WRP_CAmvBS0?si=BjEMjacrE_j3iwtN')">Lecture Video 4</button>
+                                <button onclick="playVideo('qj7yIiPKhdQ?si=aabgP6vHCxCMknzF')">Lecture Video 5</button>
+                            </details>
+                            
+                            <details>
+                                <summary>History of Hadoop</summary>
+                                <button onclick="playVideo('dtOkyxWeYrA?si=ZW2bF1c-gkXNXQLd')">Lecture Video</button>
+                                <button onclick="playVideo('37zkYHNNJBk?si=schfrwOUcO1-UThY')">Lecture Video 2</button>
+                                <button onclick="playVideo('Jv2pfvDQlrE?si=MLWqiixhqQL5ahVh')">Lecture Video 3</button>
+                            </details>
+                            
+                            <details>
+                                <summary>The Hadoop Distributed File System</summary>
+                                <button onclick="playVideo('aNeEsfOI5cU?si=iCrAAhddnlEObtJY')">Lecture Video</button>
+                                <button onclick="playVideo('GJYEsEEfjvk?si=17P7CdTuNCJLDURu')">Lecture Video 2</button>
+                                <button onclick="playVideo('VavRifvVwIo?si=PF8wPcyPTzHSqNWB')">Lecture Video 3</button>
+                                <button onclick="playVideo('LX2vERESOp4?si=mIuiC45qgLPXR5Bj')">Lecture Video 4</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Components of Hadoop</summary>
+                                <button onclick="playVideo('xzx68ZhExRc?si=jS_KPCeWJpznbsZ5')">Lecture Video</button>
+                                <button onclick="playVideo('p0TdBqIt3fg?si=eeeixknkVv42hsLM')">Lecture Video 2</button>
+                                <button onclick="playVideo('EBqYeeW5Z7U?si=iFtN0vN02D8e31yQ')">Lecture Video 3</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Analyzing the Data with Hadoop</summary>
+                                <button onclick="playVideo('zsViXOHtKrw?si=V1ViWBQb7ZcTVA6n')">Lecture Video</button>
+                                <button onclick="playVideo('_xLKMvAdUZc?si=XbUcfiz0GQKkH3re')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Scaling Out</summary>
+                                <button onclick="playVideo('KJnRuNFpw-A?si=Smvg5Xotkh_nC8zt')">Lecture Video</button>
+                                <button onclick="playVideo('jkuvSSgNt0k?si=cydDjE9vEbmOyLy-')">Lecture Video 2</button>
+                                <button onclick="playVideo('ukhSRu_Uymw?si=vc5DAt1-CvPgARzS')">Lecture Video 3</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Hadoop Streaming</summary>
+                                <button onclick="playVideo('1N9Cjg4Td6I?si=7f-WYTAE1JDE43vp')">Lecture Video</button>
+                                <button onclick="playVideo('H_8CMENqEZ4?si=vG8Slkf_pPONKgEg')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Design of HDFS</summary>
+                                <button onclick="playVideo('WqVQXQiuu9U?si=XQq8HKqqZRNAzTkf')">Lecture Video</button>
+                                <button onclick="playVideo('kQlMksqe3TI?si=7jDt4wvnYoSCzh-8')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Java interfaces to HDFS Basics</summary>
+                                <button onclick="playVideo('5nYTyrzSQgo?si=XS1yU5nzEjWX13te')">Lecture Video</button>
+                                <button onclick="playVideo('bRpqGtRMiyQ?si=M-prymaw5QckVovK')">Lecture Video 2</button>
+                                <button onclick="playVideo('NzuuNcCLDD8?si=9dPVAs1LzydG0Um-')">Lecture Video 3</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Developing a MapReduce Application</summary>
+                                <button onclick="playVideo('YBlp8UG3QvM?si=7oLe-nr35zRVvi19')">Lecture Video</button>
+                                <button onclick="playVideo('UBaV3Mcd5uI?si=O4miyiB1OFLBh_A5')">Lecture Video 2</button>
+                                <button onclick="playVideo('pcTFiU7wKkQ?si=HpPEXRDReuaBsTKP')">Lecture Video 3</button>
+                            </details>
+                            
+                            <details>
+                                <summary>How MapReduce Works</summary>
+                                <button onclick="playVideo('b-IvmXoO0bU?si=C5GFmscnVi9nHPOs')">Lecture Video</button>
+                                <button onclick="playVideo('YBlp8UG3QvM?si=V8Io_2uzfoi6fC2G')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Anatomy of a MapReduce Job run</summary>
+                                <button onclick="playVideo('9NmGg79kQt0?si=aDyW3URPHcGQiA1b')">Lecture Video</button>
+                                <button onclick="playVideo('30xpY5nKDAs?si=xqm8ZVQKt7Z9jnET')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Failures</summary>
+                                <button onclick="playVideo('V4vjRUrelEI?si=Ol9NAKhXEQwwTh9C')">Lecture Video</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Job Scheduling</summary>
+                                <button onclick="playVideo('VTdjEk3rL70?si=j-iBK7X9iwTbJIvf')">Lecture Video</button>
+                                <button onclick="playVideo('mIUd3pyD6Qc?si=0vrt7CwS_iLM1UqC')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Shuffle and Sort</summary>
+                                <button onclick="playVideo('6ehu2jEEXWE?si=tQ2DSeFd9NaklZRk')">Lecture Video</button>
+                                <button onclick="playVideo('7MiubC1Xk34?si=-cJ1uToI0Nmi-ns8')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Task Execution</summary>
+                                <button onclick="playVideo('V51PMtWYEJo?si=DDvVIC48xbCJIp3a')">Lecture Video</button>
+                            </details>
+                            
+                            <details>
+                                <summary>MapReduce Types and Formats</summary>
+                                <button onclick="playVideo('dWn9Z19tRMQ?si=hrwh1hOPrNKE8dgZ')">Lecture Video</button>
+                                <button onclick="playVideo('brz5bfWlT9Y?si=FlLzDhm9oIpFzY2-')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>MapReduce Features</summary>
+                                <button onclick="playVideo('tWXMUnz34UM?si=J7-doCVWUqA4dE4I')">Lecture Video</button>
+                                <button onclick="playVideo('cHGaQz0E7AU?si=MBtlDJRnLMVQDCSM')">Lecture Video 2</button>
+                            </details>
+                            
+                            <details>
+                                <summary>Hadoop Environment</summary>
+                                <button onclick="playVideo('p0TdBqIt3fg?si=4l417YOT7bgOc7kU')">Lecture Video</button>
+                            </details>
+                            
+                        </div>                                               
+                                                                                                
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="syllabus-container">
+                        <p>Unit-3 Syllabus</p>
+                        <div class="syllabus">
+                            UNIT III:
+                            Introduction to Hadoop: History of Hadoop, the Hadoop Distributed File System,
+                            Components of Hadoop Analysing the Data with Hadoop, Scaling Out, Hadoop Streaming,
+                            Design of HDFS, Java interfaces to HDFS Basics, Developing a Map Reduce Application,
+                            HowMap Reduce Works, Anatomy of a Map Reduce Job run, Failures, Job Scheduling, Shuffle
+                            and Sort, Task execution, MapReduce Types and Formats, MapReduce Features Hadoop
+                            environment.      
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+
+    <footer>
+        <div class="col">
+            <p>&copy; <span id="currentYear2"></span> , <a href="../../../../../../index.html">MANACLG</a> . All rights
+                reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+        </div>
+        <div class="socialIcons">
+            <a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a>
+            <a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i class='bx bxl-instagram'></i></a>
+            <a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i class='bx bxl-whatsapp'></i></a>
+            <a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.linkedin.com/in/mana-clg-006532295/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61551901873724"><i class='bx bxl-facebook'></i></a>
+            <a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a>
+
+        </div>
+    </footer>
+
+
+
+
+    <script src="../../../../../../../assests/script.js"></script>
+    <script src="../../../../assests/lecture video page assets/lecturevideo.js"></script>
+
+
+</body>
+
+</html>

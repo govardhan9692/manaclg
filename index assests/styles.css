@@ -1,0 +1,915 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+    text-transform: uppercase;
+
+
+}
+
+a{
+    color: var(--text-color);
+}
+
+/* Preloader Styles */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-hf-color);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.preloader-content .logo {
+  margin-top: -8.0625rem;
+  font-size: 4rem;
+  color: var(--logo-color);
+  font-family: "Irish Grover", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#dt{
+  font-size: 2rem;
+  font-weight: 800;
+  position: absolute;
+  bottom: 6.4375rem;
+}
+
+#dt span{
+  color: var(--logo-color);
+}
+
+/* ----------Loading Animation css end ------- */
+:root {
+    --bg-color: #ededed;
+    --second-bg-color: #ededed;
+    --bg-hf-color: #ffffff;
+    --text-color: #081b29;
+    --main-color: #00abf0;
+    --logo-color: #ff2f00;
+    --back-shadow-for-sidebar: 0.1875rem 0.1875rem 0.3125rem rgba(0, 0, 0, 0.4); /* Corrected variable name */
+    --back-shodow-for-container: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+
+.dark-mode {
+    --bg-color: #081b29;
+    --bg-hf-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+    --logo-color: #ff2f00;
+    --back-shadow-for-sidebar : 0.1875rem 0.1875rem 0.3125rem rgba(255, 255, 255, 0.4);
+    --back-shodow-for-container:rgba(255, 255,255, .5) 0px 5px 15px;
+
+  }
+
+html {
+    font-size: 100%;
+    overflow-x: auto;
+}
+
+body {
+  background: var(--bg-hf-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*------------------------header-------------------------------- */
+.header {
+    position: relative; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4.6875rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-hf-color);
+    box-shadow: var(--back-shadow-for-sidebar);
+    /* border: 1px solid red; */
+    z-index: 999;
+    transition: top 0.3s; /* Added transition for smooth animation */
+}
+
+/*------------------------ logo-------------------------------- */
+.logo {
+    font-size: 2.8125rem;
+    font-weight: 600;
+    color: var(--logo-color); 
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+
+}
+
+#logo-section {
+    position: absolute;
+    left: 3.125rem;
+    top: 0;
+
+}
+
+/*------------------------ social meida design-------------------------------- */
+.social-media {
+    position: absolute;
+    top: 2.8125rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.sm {
+    background: var(--bg-color);
+    border-radius: 50%;
+    width: 1.35rem;
+    height: 1.35rem;
+    cursor: pointer;
+    border: 0.0625rem solid var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sm a {
+    color: var(--text-color);
+    width: 100%;
+    height: 100%;
+    transition: .5s ease;
+    font-size: .70em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.sm a:hover {
+    color: var(--logo-color);
+
+}
+
+
+
+.navbar{
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.5625rem;
+    /* border: 1px solid red; */
+}
+
+.navbar a {
+    color: var(--text-color);
+    font-size: 0.9375rem;
+    margin-left: 1.1875rem;
+    text-transform: uppercase;
+}
+
+.navbar a {
+    color: var(--text-color);
+    transition: .5s ease-in-out;
+    font-weight: 450;
+    /* border: 1px solid red; */
+}
+
+.navbar a:hover {
+    color: var(--logo-color);
+}
+
+#mode ,#mode2{
+    font-size: 2.1875rem;
+}
+
+.menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0.75rem;
+    color: var(--text-color);
+    transition: color 0.3s ease-in-out;
+
+}
+
+.menu-icon:hover {
+    color: var(--logo-color);
+}
+
+    /*------------------------ Container design start------------------------------- */
+    .container {
+        width: 100%;
+        background-color: var(--bg-color);
+        display: flex;
+        flex: 1;
+        /* border: .2rem solid rgb(0, 255, 94); */
+        font-family: 'Irish Grover', sans-serif;
+        position: relative;
+      }
+      
+      .left-sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5rem;
+        border-right: 0.0625rem solid var(--second-bg-color);
+        background-color: var(--bg-hf-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        transition: transform 0.3s ease-in-out;
+        height: 100%;
+        /* border: 2px solid red; */
+      }
+      
+      .left-sidebar.collapsed {
+        transform: translateX(-105%);
+        /* width: 0; */
+      }
+      
+      .content {
+        position: absolute;
+        top: 0;
+        left: 5rem;
+        right: 0;
+        height: 100%;
+        /* border: .1rem solid blue; */
+        overflow: auto;
+      }
+      
+      .left-sidebar.collapsed + .content {
+        left: 0;
+      }
+    .left-sidebar-icon {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: color 0.3s;
+        user-select: none;
+        height: 20%;
+        transition: .3s ease;
+        border-radius: .5rem;
+        /* border: 1px solid red; */
+        /* text-align: center; */
+
+    }
+
+    .left-sidebar-icon:hover{
+        background: var(--second-bg-color);
+    }
+
+
+
+    .left-sidebar-icon i {
+        font-size: 1.5625rem;
+        border-radius: 1.5625rem;
+        padding: 0.375rem 1.1875rem;
+        transition: background-color .3s ease , color .3s ease;
+    }
+    .left-sidebar-icon span{
+        font-size: 0.625rem;
+        font-weight: 600;
+    }
+
+
+    .stay {
+        color: var(--logo-color);
+        background: var(--second-bg-color);
+    }
+
+    .stay i{
+        color: var(--logo-color);
+        background: var(--second-bg-color);
+
+    }
+
+
+    .main-content{
+        border:0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        position: relative;
+    } 
+
+    .main-content::-webkit-scrollbar {
+        width: .1rem;
+      }
+      
+      .main-content::-webkit-scrollbar-thumb {
+        /* background: var(--text-color); */
+        border-radius: 12px;
+      }
+      
+
+      .main-content {
+        font-family: sans-serif;
+        /* background: var(--bg-color); */
+      }
+
+ 
+    
+
+    /*------------------------ Container design  end------------------------------- */
+
+/*------------------------ side bar-------------------------------- */
+/*------------------------ side bar-------------------------------- */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 16.875rem;
+    z-index: 999;
+    background-color: var(--bg-hf-color);
+    box-shadow: var(--back-shadow-for-sidebar);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.box a {
+    color: var(--text-color);
+    margin-top: 2.1875rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: color .5s ease ;
+    /* border: 1px solid red;   */
+}
+
+.box a:hover {
+    color: var(--logo-color);
+    
+}
+
+/* menu icon and close icon */
+.open-icon{
+    display: none;
+    transition: .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: -0.0625rem;
+    right: 0;
+    /* border: 1px solid red;   */
+    /* height: 100%; */
+}
+
+.open-icon span{
+    font-size: 1.875rem;
+    font-weight: 600;
+    /* border: 1px solid red;   */
+}
+
+.open-icon span:hover{
+    color: var(--logo-color);
+}
+
+.close-icon{
+    width: 100%;
+    height: 7.3125rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    /* border: 1px solid red;   */
+    position: relative;
+}
+
+.close-icon span{
+    font-size: 2.1875rem;
+    /* border: 1px solid red;   */
+    margin-right: 1.1rem;
+    position: absolute;
+    top: 1.1rem;
+
+    
+}
+
+.close-icon span:hover{
+    color: var(--logo-color);
+}
+
+/* copyrights*/
+.side-bar-copyrights{
+    position: absolute;
+    bottom: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 10.5%;
+    border-top: 0.075rem solid var(--text-color);
+}
+
+.side-bar-copyrights p{
+    font-size: 0.75rem;
+    font-weight: 600;
+    /* border: 1px solid red; */
+
+}
+
+.side-bar-copyrights p a{
+    font-size: 0.75rem;
+}
+
+
+footer{
+    position: relative;
+    bottom: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    width: 100%;
+    height: 3.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.625rem 2.6%;
+    background: var(--bg-hf-color);
+    box-shadow: var(--back-shadow-for-sidebar);
+    z-index: 999;
+
+}
+
+.col p{
+    color: var(--text-color);
+    font-size: 1rem;
+
+}
+
+.col p a{
+    color: var(--text-color);
+}
+
+.socialIcons i{
+    display: inline-block;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    margin-right: 1.5625rem;
+    transition: 0.5s;
+
+}
+
+.socialIcons i:hover{
+    color: var(--logo-color);
+}
+
+/* -----------------main header footer and sidebar design completed at line number 454 */
+
+/* -----------------Academic profile page design starts-----------------------. */
+.container2 {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: .5rem; */
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  /* border: .1rem solid var(--text-color); */
+  overflow: auto;
+
+}
+.container2 h1 {
+    font-size: 1.5rem;
+}
+
+.container2 h2 {
+    font-size: 1rem;
+}
+
+
+.student-mapper {
+  box-shadow: var(--back-shodow-for-container);
+  border-radius: 1rem;
+  max-width: 25rem;
+  width: 90%;
+  max-height: 35rem;
+  height: 70%;
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-hf-color);
+  
+}
+
+
+.custom-select {
+  border: .1em solid var(--text-color);
+  width: 100%;
+  max-height: 5rem;
+  height: 50%;
+  margin: 1rem 0;
+  color: var(--text-color);
+  background-color: var(--bg-hf-color);
+  border-radius: .5rem;
+  padding: 0 .5rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+
+#update-profile {
+  width: 50%;
+  text-align: center;
+  border-radius: .5rem;
+  background-color: var(--logo-color);
+  color: #ffffff;
+  padding: .75rem;
+  transition: background-color ease-in-out .2s;
+  margin-top: 1rem;
+}
+#update-profile:hover{
+  background-color: green;
+}
+
+
+
+
+/* -----------------Academic profile page End starts-----------------------. */
+
+
+/*--------------------------------------------------- Design for desktop version is over at line number 402 ---------------------------------------------------*/
+
+/*---------------------------------------------------Design for Mobile version is over at line number 404 ---------------------------------------------------*/
+/* ------------------Responsive Design for --------------*/
+@media only screen and (max-width: 1045px) {
+
+    #logo-section {
+        position: absolute;
+        left: 0.75rem;
+        top: 0;
+    }
+
+    .menu-icon{
+        display: none;
+    }
+    .navbar{
+        display: none;
+    }
+    .open-icon{
+        display: block;
+        margin-right: 0.625rem;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        /* border: 1px solid red;   */
+        /* cursor: none; */
+
+    }
+    .open-icon span{
+        cursor: none;
+    }
+    .close-icon span{
+        cursor: none;
+        
+        
+    }
+
+    footer{
+        display: none;
+    }
+    /* .content {
+        position: absolute;
+        top: 0;
+        left: 5rem;
+        right: 0;
+        height: 100%;
+        border: .2rem solid blue;
+      } */
+
+    .content{
+        top: auto;
+        left: 0rem;
+        /* border: .5rem solid red; */
+        height: 90%;
+
+    }
+    .left-sidebar.collapsed {
+        transform: translateX(0);
+      }
+
+
+    .left-sidebar{
+        position: absolute;
+        top: auto;
+        left: auto;
+        bottom: 0rem;
+        width: 100%;
+        height: 10%;
+        /* padding: 0; */
+        /* margin-bottom: 0; */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg-hf-color);
+        border:0;
+        box-shadow: var(--back-shodow-for-sidebar);
+        border-top: 0.0625rem solid var(--second-bg-color);
+
+    }
+
+    .left-sidebar-icon {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: color 0.3s;
+        height: 100%;
+  
+    
+    }
+
+    .left-sidebar-icon i {
+        padding: .4rem 2.5rem;
+        font-size: 2em;
+        
+    
+    }
+    
+    .left-sidebar-icon:hover{
+        background:none;
+    }
+   .stay {
+        color: var(--logo-color);
+        background:none;
+    }
+
+    
+}
+
+
+
+
+@media only screen and (max-width: 767px){
+    *{
+        cursor: none;
+    }
+    .content{
+        top: auto;
+        left: 0rem;
+        height: 91.222222%;
+
+    }
+    .left-sidebar.collapsed {
+        transform: translateX(0);
+      }
+
+
+    .left-sidebar{
+      position: fixed;
+        height: 8%;
+        z-index: 99;
+        width: 100%;
+
+    }
+
+    .left-sidebar-icon{
+      cursor: none;
+    }
+    .left-sidebar-icon i {
+        padding: 0.375rem 1.5625rem;
+        font-size: 1.2rem;
+    
+    }
+    .side-bar-copyrights{
+        height: 8.9%;
+    }
+    
+    .left-sidebar-icon:hover{
+        background:none;
+    }
+
+    
+    
+
+}
+
+
+@media only screen and (max-width: 380px) and  (max-height: 670px){
+    *{
+        cursor: none;
+    }
+    .content{
+        height: 90%;
+        /* border: 1px solid red; */
+
+
+    }
+
+    .left-sidebar{
+        height: 8.9%;
+        /* background: transparent; */
+
+
+    }
+    .side-bar-copyrights{
+        height: 11.6%;
+    }
+    
+
+
+}
+
+/* -----------Academic profile page ----------------- */
+
+/* --------------desktop responsive academic profile design start-------------- */
+
+@media only screen and (max-width: 1742px) and (max-height: 931px){
+    .custom-select {
+        margin: 0.75rem 0;
+        /* cursor: none; */
+  
+  
+    }
+}
+
+@media only screen and (max-width: 1742px) and (max-height: 770px){
+    .custom-select {
+        margin: 0.5rem 0;
+        /* cursor: none; */
+  
+  
+    }
+    #update-profile {
+        padding: .5rem .1rem;
+    }
+}
+
+
+@media only screen and (max-width: 1742px) and (max-height: 670px){
+    .custom-select {
+        margin: 0.5rem 0;
+        /* cursor: none; */
+  
+  
+    }
+
+}
+
+@media only screen and (max-width: 1742px) and (max-height: 610px){
+
+    html{
+        font-size: 85%;
+    }
+
+}
+
+@media only screen and (max-width: 1742px) and (max-height: 550px){
+
+    html{
+        font-size: 75%;
+    }
+
+
+}
+@media only screen and (max-width: 1742px) and (max-height: 480px){
+
+    html{
+        font-size: 65%;
+    }
+
+
+}
+
+@media only screen and (max-width: 1742px) and (max-height: 444px){
+
+    html{
+        font-size: 55%;
+    }
+
+
+}
+
+@media only screen and (max-width: 1742px) and (max-height: 360px){
+
+    html{
+        font-size: 50%;
+    }
+
+
+}
+
+
+
+
+
+
+
+/* ---------------desktop responsive academic profile design end-------------- */
+
+
+/* ---------------mobile responsive academic profile design start-------------- */
+
+
+
+
+@media only screen and (max-width: 767px){
+    .container2 {
+        justify-content: flex-start;
+        padding-top: 1rem;
+      }
+
+
+  .custom-select {
+      margin: 0.75rem 0;
+      cursor: none;
+
+
+  }
+  #update-profile {
+      cursor: none;
+      font-size: .85rem;
+  }
+  
+}
+
+@media only screen and (max-height: 690px) {
+
+    .container2 {
+        justify-content: flex-start;
+        padding-top: 1rem;
+      }
+
+
+  .student-mapper {
+      height: 75%;
+      /* margin-top: 0.5rem; */
+      /* padding: 1rem; */
+      /* margin-bottom: 1rem; */
+  }
+  .custom-select {
+      margin: .45rem 0;
+      height: 10%;
+  }
+  #update-profile {
+    padding: .45rem .75rem;
+}
+  
+
+
+}
+
+
+@media only screen and (max-width: 300px){
+
+
+    html{
+        font-size: 80%;
+    }
+}
+
+
+/* -----------Academic profile page----------------- */
+

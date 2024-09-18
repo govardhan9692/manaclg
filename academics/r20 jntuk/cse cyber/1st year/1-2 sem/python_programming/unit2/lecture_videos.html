@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNTUK Python Lecture Videos R20 - Mana Clg</title>
+    <meta name="description"
+        content="Watch comprehensive Python   lecture videos for JNTUH R20 students at Mana Clg. Our videos cover key topics and concepts to help you understand the subject better.">
+    <!-- <link rel="canonical" href="https://manaclg.com/jntuh-r20-Python  -lecture-videos"> -->
+    <link rel="stylesheet" href="../../../../assests/lecture video page assets/lecturervideos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <!-- header design -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleLeftSidebar()">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+
+        <div id="logo-section"><a href="../../../../../../../index.html" class="logo">MANACLG</a>
+            <nav class="social-media">
+                <div class="sm"><a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a></div>
+                <div class="sm"><a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i
+                            class='bx bxl-instagram'></i></a></div>
+                <div class="sm"><a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i
+                            class='bx bxl-whatsapp'></i></a></div>
+                <div class="sm"><a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i
+                            class='bx bxl-youtube'></i></a></div>
+                <div class="sm"><a href="https://www.linkedin.com/in/mana-clg-006532295/"><i
+                            class='bx bxl-linkedin'></i></a></div>
+                <div class="sm"><a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div class="sm"><a href="https://www.facebook.com/profile.php?id=61551901873724"><i
+                            class='bx bxl-facebook'></i></a></div>
+                <div class="sm"><a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a></div>
+
+
+            </nav>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+            <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+            <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+            <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                Support</a>
+            <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+            <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+            <a href="#"><i class='bx bxs-moon' id="mode"></i></a>
+        </nav>
+        <div class="open-icon" onclick="openSidebar()"><span class="material-symbols-outlined menu-icon" id="menu">
+                menu
+            </span></div>
+        <nav class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()"><span class="material-symbols-outlined">
+                    close
+                </span></div>
+            <div class="box">
+                <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+                <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+                <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+                <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                    Support</a>
+                <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+                <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+                <a href="#"><i class='bx bxs-moon' id="mode2"></i></a>
+                <div class="side-bar-copyrights">
+                    <p>&copy; <span id="currentYear"></span> , <a href="../../../../../../../index.html">MANACLG</a> .
+                        All rights reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <aside id="options-container" class="left-sidebar collapsed">
+            <a href="../../../../../../../index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="home">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="../../../../../../../updates/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="updates">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updates</span>
+                </div>
+            </a>
+
+            <a href="../../../../../../../levelup/levelup.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="levelup">
+                    <i class="fas fa-level-up-alt"></i>
+                    <span>Level Up</span>
+                </div>
+            </a>
+
+
+            <a href="../../../../../../../profile/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="profile">
+                    <i class="fa fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </aside>
+
+
+        <main class="content">
+
+            <div class="main-content">
+                <pre id="extra-space">
+
+
+                </pre>
+                <section>
+                    <a href="unit2.html" id="back-arrow"><span class="material-symbols-outlined"> arrow_back
+                        </span></a>
+                    <h3 class="title">Python </h3>
+                    <div class="addres">
+                        <p>Unit-2</p>
+                        <p>Lecture Videos</p>
+                    </div>
+                    <div class="container2">
+                        <div id="video_player" class="sticky">
+                            <iframe id="main-Video" width="100%" height="100%"
+                                src="https://www.youtube.com/embed/dRTNrDMoUs0?autoplay=1&mute=1" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="playlistBx">
+                            <div class="header2">
+                                <marquee class="row" id="summary-text" behavior="scroll" direction="left"
+                                    scrollamount="7">Python , syllabus Wise Unit-2 Lecture Videos</marquee>
+                            </div>
+                            <!-- -----------------------------------add button container below------------------------ -->
+                            <div class="button-container">
+                                <details>
+                                    <summary>Control Statement</summary>
+                                    <button onclick="playVideo('gkV14SRCD-4')">lecture video</button>
+                                    <button onclick="playVideo('-Y7zZExmI8A')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Definite iteration for Loop</summary>
+                                    <button onclick="playVideo('03qmpqhNOZw')">lecture video</button>
+                                    <button onclick="playVideo('Ku_7FA95AnY')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Formatting Text for output</summary>
+                                    <button onclick="playVideo('Ln5dzg820PU')">lecture video</button>
+                                    <button onclick="playVideo('QiBCQ_J1yos')">lecture Video  in Telugu</button>
+                                    <button onclick="playVideo('3lrUFM9BCJU')">lecture Video</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Selection</summary>
+                                    <button onclick="playVideo('5KjapFQNxUo')">lecture video</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>if Statements</summary>
+                                    <button onclick="playVideo('HRpBedVYB4g')">lecture video</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>if-else Statements</summary>
+                                    <button onclick="playVideo('fkTtn6UDIf0')">lecture video</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>if-elif-else Statements</summary>
+                                    <button onclick="playVideo('gHcRW0uB7MM')">lecture video</button>
+                                </details>
+                            
+                                <button onclick="playVideo('94UHCEmprCY')">Conditional Iteration</button>
+                                <button onclick="playVideo('5QlCw1_N6xk')">Conditional Iteration in Telugu</button>
+                            
+                                <button onclick="playVideo('WFeS0m3RqlY')">for Loop</button>
+                            
+                                <button onclick="playVideo('TZuz7Cecgnw')">while Loop</button>
+                            
+                                <button onclick="playVideo('Hmh385KjroY')">Input Validation Loops</button>
+                                <button onclick="playVideo('akDSbJJI-J0')">Input Validation Loops in Telugu</button>
+                            
+                                <details>
+                                    <summary>Nested Loops</summary>
+                                    <button onclick="playVideo('TPhE5cw-2u0')">lecture video</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Strings and Text Files</summary>
+                                    <button onclick="playVideo('Bo5X7wbBP_E')">lecture video</button>
+                                    <button onclick="playVideo('IWk44K-6bnQ')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <button onclick="playVideo('_n_op0dmTCY')">Accessing Character and Substring in Strings</button>
+                            
+                                <details>
+                                    <summary>Data Encryption</summary>
+                                    <button onclick="playVideo('EBbrDQjAqTI')">lecture video</button>
+                                    <button onclick="playVideo('vsLBErLWBhA')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Strings and Number Systems</summary>
+                                    <button onclick="playVideo('JWwFWGK8aBM')">lecture video</button>
+                                    <button onclick="playVideo('AWAjbtWBzGs')">lecture Video  in Telugu</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>String Methods</summary>
+                                    <button onclick="playVideo('wQ1AjLQZUZo')">lecture video</button>
+                                    <button onclick="playVideo('ANgYwq9fFQw')">lecture Video  in Telugu</button>
+                                    <button onclick="playVideo('IWk44K-6bnQ')">lecture Video</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Text Files</summary>
+                                    <button onclick="playVideo('4mX0uPQFLDU')">lecture video</button>
+                                    <button onclick="playVideo('Bo5X7wbBP_E')">lecture Video  in Telugu</button>
+                                </details>
+                            </div>
+                            
+                            <!-- ------------------------------------------------------------ -->
+
+                        </div>
+                    </div>
+                    <div class="syllabus-container">
+                        <p>Unit-2 Syllabus</p>
+                        <div class="syllabus">
+                            UNIT II
+                            Control Statement: Definite iteration for Loop Formatting Text for output, Selection if and if else Statement, Conditional Iteration The While Loop
+                            Strings and Text Files: Accessing Character and Substring in Strings, Data Encryption, Strings and Number Systems, String Methods Text Files.
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+
+    <footer>
+        <div class="col">
+            <p>&copy; <span id="currentYear2"></span> , <a href="../../../../../../index.html">MANACLG</a> . All rights
+                reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+        </div>
+        <div class="socialIcons">
+            <a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a>
+            <a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i class='bx bxl-instagram'></i></a>
+            <a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i class='bx bxl-whatsapp'></i></a>
+            <a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.linkedin.com/in/mana-clg-006532295/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61551901873724"><i class='bx bxl-facebook'></i></a>
+            <a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a>
+
+        </div>
+    </footer>
+
+
+
+
+    <script src="../../../../../../../assests/script.js"></script>
+    <script src="../../../../assests/lecture video page assets/lecturevideo.js"></script>
+
+
+</body>
+
+</html>

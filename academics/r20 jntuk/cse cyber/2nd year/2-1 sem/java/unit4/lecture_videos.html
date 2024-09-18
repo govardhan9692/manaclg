@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNTUK JAVA Lecture Videos R20 - Mana Clg</title>
+    <meta name="description"
+        content="Watch comprehensive JAVA lecture videos for JNTUH R20 students at Mana Clg. Our videos cover key topics and concepts to help you understand the subject better.">
+    <!-- <link rel="canonical" href="https://manaclg.com/jntuh-r20-JAVA-lecture-videos"> -->
+    <link rel="stylesheet" href="../../../../assests/lecture video page assets/lecturervideos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <!-- header design -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleLeftSidebar()">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+
+        <div id="logo-section"><a href="../../../../../../../index.html" class="logo">MANACLG</a>
+            <nav class="social-media">
+                <div class="sm"><a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a></div>
+                <div class="sm"><a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i
+                            class='bx bxl-instagram'></i></a></div>
+                <div class="sm"><a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i
+                            class='bx bxl-whatsapp'></i></a></div>
+                <div class="sm"><a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i
+                            class='bx bxl-youtube'></i></a></div>
+                <div class="sm"><a href="https://www.linkedin.com/in/mana-clg-006532295/"><i
+                            class='bx bxl-linkedin'></i></a></div>
+                <div class="sm"><a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div class="sm"><a href="https://www.facebook.com/profile.php?id=61551901873724"><i
+                            class='bx bxl-facebook'></i></a></div>
+                <div class="sm"><a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a></div>
+
+
+            </nav>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+            <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+            <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+            <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                Support</a>
+            <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+            <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+            <a href="#"><i class='bx bxs-moon' id="mode"></i></a>
+        </nav>
+        <div class="open-icon" onclick="openSidebar()"><span class="material-symbols-outlined menu-icon" id="menu">
+                menu
+            </span></div>
+        <nav class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()"><span class="material-symbols-outlined">
+                    close
+                </span></div>
+            <div class="box">
+                <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+                <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+                <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+                <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                    Support</a>
+                <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+                <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+                <a href="#"><i class='bx bxs-moon' id="mode2"></i></a>
+                <div class="side-bar-copyrights">
+                    <p>&copy; <span id="currentYear"></span> , <a href="../../../../../../../index.html">MANACLG</a> .
+                        All rights reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <aside id="options-container" class="left-sidebar collapsed">
+            <a href="../../../../../../../index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="home">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="../../../../../../../updates/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="updates">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updates</span>
+                </div>
+            </a>
+
+            <a href="../../../../../../../levelup/levelup.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="levelup">
+                    <i class="fas fa-level-up-alt"></i>
+                    <span>Level Up</span>
+                </div>
+            </a>
+
+
+            <a href="../../../../../../../profile/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="profile">
+                    <i class="fa fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </aside>
+
+
+        <main class="content">
+
+            <div class="main-content">
+                <pre id="extra-space">
+
+
+                </pre>
+                <section>
+                    <a href="unit4.html" id="back-arrow"><span class="material-symbols-outlined"> arrow_back
+                        </span></a>
+                    <h3 class="title">JAVA</h3>
+                    <div class="addres">
+                        <p>Unit-4</p>
+                        <p>Lecture Videos</p>
+                    </div>
+                    <div class="container2">
+                        <div id="video_player" class="sticky">
+                            <iframe id="main-Video" width="100%" height="100%"
+                                src="https://www.youtube.com/embed/dRTNrDMoUs0?autoplay=1&mute=1" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="playlistBx">
+                            <div class="header2">
+                                <marquee class="row" id="summary-text" behavior="scroll" direction="left"
+                                    scrollamount="7">JAVA, syllabus Wise Unit-4 Lecture Videos</marquee>
+                            </div>
+                            <!-- -----------------------------------add button container below------------------------ -->
+                            <div class="button-container">
+                                <details>
+                                    <summary>Packages and Java Library: Introduction</summary>
+                                    <button onclick="playVideo('aXyJ2YsTHjo')">lecture video</button>
+                                    <button onclick="playVideo('gftZ55IWA40')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Defining Package</summary>
+                                    <button onclick="playVideo('Bua6LQO2vQ8')">lecture video</button>
+                                    <button onclick="playVideo('XHC0cD4sYx4')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Importing Packages and Classes into Programs</summary>
+                                    <button onclick="playVideo('9xLGd6EGvIE')">lecture video</button>
+                                    <button onclick="playVideo('gftZ55IWA40')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Path and Class Path</summary>
+                                    <button onclick="playVideo('eGO8Tkascfo')">lecture video</button>
+                                </details>
+
+                                <details>
+                                    <summary>Packages in Java SE</summary>
+                                    <button onclick="playVideo('Bua6LQO2vQ8')">lecture video</button>
+                                    <button onclick="playVideo('2QfMqU9JXfw')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Java.lang Package and its Classes</summary>
+                                    <button onclick="playVideo('XaXIZG3oLQs')">lecture video</button>
+                                </details>
+
+                                <details>
+                                    <summary>Enumeration</summary>
+                                    <button onclick="playVideo('k0iTgTuiEGY')">lecture video</button>
+                                    <button onclick="playVideo('dMc2z2TcTn8')">lecture video 2</button>
+                                    <button onclick="playVideo('eXTEndlhndA')">lecture video 3</button>
+                                </details>
+
+                                <details>
+                                    <summary>Class Math</summary>
+                                    <button onclick="playVideo('w0VTlSOXBs8')">lecture video</button>
+                                    <button onclick="playVideo('4RfAnBygqIQ')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Wrapper Classes</summary>
+                                    <button onclick="playVideo('Fyc86kVIePE')">lecture video</button>
+                                    <button onclick="playVideo('M1DAFvBa_ho')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Auto-boxing and Auto-unboxing</summary>
+                                    <button onclick="playVideo('QeP1FRlxtsk')">lecture video</button>
+                                    <button onclick="playVideo('F6i3KK_S-gQ')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Java util Classes and Interfaces</summary>
+                                    <button onclick="playVideo('Bua6LQO2vQ8')">lecture video</button>
+                                    <button onclick="playVideo('8YfNq3jb_t4')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Formatter Class</summary>
+                                    <button onclick="playVideo('qt89kDYMBGo')">lecture video</button>
+                                    <button onclick="playVideo('6BemWG6T3KI')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Random Class</summary>
+                                    <button onclick="playVideo('vEzd6CfQYnA')">lecture video</button>
+                                    <button onclick="playVideo('1HB9epm7zBI')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Time Package</summary>
+                                    <button onclick="playVideo('9IMatdwhjLE')">lecture video</button>
+                                    <button onclick="playVideo('UA95vl0HgEk')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Class Instant (java.time.Instant)</summary>
+                                    <button onclick="playVideo('ERykbA8p3to')">lecture video</button>
+                                </details>
+
+                                <details>
+                                    <summary>Formatting for Date/Time in Java</summary>
+                                    <button onclick="playVideo('qc930nafWdM')">lecture video</button>
+                                    <button onclick="playVideo('UA95vl0HgEk')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Temporal Adjusters Class</summary>
+                                    <button onclick="playVideo('GaQcMOwJ83Y')">lecture video</button>
+                                </details>
+
+                                <details>
+                                    <summary>Exception Handling: Introduction</summary>
+                                    <button onclick="playVideo('8WTVLa1Xtsk')">lecture video</button>
+                                    <button onclick="playVideo('gsptYHpb3aA')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Hierarchy of Standard Exception Classes</summary>
+                                    <button onclick="playVideo('IBttEEFkH_Y')">lecture video</button>
+                                    <button onclick="playVideo('Ia0FArJSwbo')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Keywords throws and throw</summary>
+                                    <button onclick="playVideo('kAOYeVYtukY')">lecture video</button>
+                                    <button onclick="playVideo('hx-3DCRyEPI')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>try,catch</summary>
+                                    <button onclick="playVideo('osEjmECD8bI')">lecture video</button>
+                                    <button onclick="playVideo('-vIA1WeSLks')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>finally Blocks</summary>
+                                    <button onclick="playVideo('mVWEO6KESbY')">lecture video</button>
+                                    <button onclick="playVideo('v9_Oy1CsD5k')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Multiple Catch Clauses</summary>
+                                    <button onclick="playVideo('Ky8P70QlKNU')">lecture video</button>
+                                    <button onclick="playVideo('_s5ToH_W-Ss')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Class Throwable</summary>
+                                    <button onclick="playVideo('tsOXHBCcYVo')">lecture video</button>
+                                    <button onclick="playVideo('_2m9iBmhKV0')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Unchecked Exceptions</summary>
+                                    <button onclick="playVideo('bCPClyGsVhc')">lecture video</button>
+                                    <button onclick="playVideo('p6w8lzKSiiQ')">lecture video 2</button>
+                                </details>
+                                <details>
+                                    <summary>Checked Exceptions</summary>
+                                    <button onclick="playVideo('alGOQMLg3UY')">lecture video</button>
+                                </details>
+
+                                <details>
+                                    <summary>try-with-resources</summary>
+                                    <button onclick="playVideo('hVQR0ZHFk-o')">lecture video</button>
+                                    <button onclick="playVideo('v89s2qYOOm8')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Catching Subclass Exception</summary>
+                                    <button onclick="playVideo('o3FMDatZBgk')">lecture video</button>
+                                </details>
+
+                                <details>
+                                    <summary>Custom Exceptions</summary>
+                                    <button onclick="playVideo('V_jVp6WdW0Y')">lecture video</button>
+                                </details>
+
+                                <details>
+                                    <summary>Nested try and catch Blocks</summary>
+                                    <button onclick="playVideo('3ZH6YFiAru0')">lecture video</button>
+                                    <button onclick="playVideo('KgYrH-B7w_s')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Rethrowing Exception</summary>
+                                    <button onclick="playVideo('qXiWNgfwJ64')">lecture video</button>
+                                    <button onclick="playVideo('YZBeB_pvHIY')">lecture video 2</button>
+                                </details>
+
+                                <details>
+                                    <summary>Throws Clause</summary>
+                                    <button onclick="playVideo('B4q1Ox0hkTQ')">lecture video</button>
+                                    <button onclick="playVideo('5XapxRLdsnQ')">lecture video 2</button>
+                                </details>
+
+                            </div>
+
+                            <!-- ------------------------------------------------------------ -->
+
+                        </div>
+                    </div>
+                    <div class="syllabus-container">
+                        <p>Unit-4 Syllabus</p>
+                        <div class="syllabus">
+                            UNIT IV
+                            Packages and Java Library: Introduction, Defining Package, Importing Packages and
+                            Classes into Programs, Path and Class Path, Access Control, Packages in Java SE,
+                            Java.lang Package and its Classes, Class Object, Enumeration, class Math, Wrapper
+                            Classes, Auto-boxing and Auto-unboxing, Java util Classes and Interfaces, Formatter
+                            Class, Random Class, Time Package, Class Instant (java.time.Instant), Formatting for
+                            Date/Time in Java, Temporal Adjusters Class, Temporal Adjusters Class.
+                            Exception Handling: Introduction, Hierarchy of Standard Exception Classes, Keywords
+                            throws and throw, try, catch, and finally Blocks, Multiple Catch Clauses, Class
+                            Throwable, Unchecked Exceptions, Checked Exceptions, try-with-resources, Catching
+                            Subclass Exception, Custom Exceptions, Nested try and catch Blocks, Rethrowing
+                            Exception, Throws Clause.
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+
+    <footer>
+        <div class="col">
+            <p>&copy; <span id="currentYear2"></span> , <a href="../../../../../../index.html">MANACLG</a> . All rights
+                reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+        </div>
+        <div class="socialIcons">
+            <a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a>
+            <a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i class='bx bxl-instagram'></i></a>
+            <a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i class='bx bxl-whatsapp'></i></a>
+            <a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.linkedin.com/in/mana-clg-006532295/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61551901873724"><i class='bx bxl-facebook'></i></a>
+            <a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a>
+
+        </div>
+    </footer>
+
+
+
+
+    <script src="../../../../../../../assests/script.js"></script>
+    <script src="../../../../assests/lecture video page assets/lecturevideo.js"></script>
+
+
+</body>
+
+</html>
