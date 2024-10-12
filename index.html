@@ -224,6 +224,65 @@
     <script src="./index assests/academic_profile.js"></script>
     <script src="./visitor/visitors.js"></script>
 
+    <script>(function() {
+        // Disable right-click
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    
+        function ctrlShiftKey(e, keyCode) {
+            return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+        }
+    
+        // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+        document.onkeydown = (e) => {
+            if (
+                event.keyCode === 123 ||
+                ctrlShiftKey(e, 'I') ||
+                ctrlShiftKey(e, 'J') ||
+                ctrlShiftKey(e, 'C') ||
+                (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+            ) {
+                return false;
+            }
+        };
+    
+        // Disable developer tools
+        function detectDevTools(allow) {
+            if(isNaN(+allow)) allow = 100;
+            var start = +new Date();
+            debugger;
+            var end = +new Date();
+            if(isNaN(start) || isNaN(end) || end - start > allow) {
+                console.log('DevTools detected. Page will now reload.');
+                window.location.reload();
+            }
+        }
+    
+        if(window.attachEvent) {
+            if (document.readyState === "complete" || document.readyState === "interactive") {
+                detectDevTools();
+                window.attachEvent('onresize', detectDevTools);
+                window.attachEvent('onmousemove', detectDevTools);
+                window.attachEvent('onfocus', detectDevTools);
+                window.attachEvent('onblur', detectDevTools);
+            } else {
+                setTimeout(argument.callee, 0);
+            }
+        } else {
+            window.addEventListener('load', detectDevTools);
+            window.addEventListener('resize', detectDevTools);
+            window.addEventListener('mousemove', detectDevTools);
+            window.addEventListener('focus', detectDevTools);
+            window.addEventListener('blur', detectDevTools);
+        }
+    
+        // Clear console
+        console.clear();
+        // Overwrite console methods
+        ['log', 'debug', 'info', 'warn', 'error', 'assert', 'dir', 'dirxml', 'group', 'groupEnd', 'time', 'timeEnd', 'count', 'trace', 'profile', 'profileEnd'].forEach(function(method) {
+            console[method] = function() {};
+        });
+    })();</script>
+
 </body>
 
 </html>
