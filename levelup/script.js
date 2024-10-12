@@ -120,12 +120,30 @@ faqItems.forEach(item => {
 });
 
 // Handle form submission
+function formatDateTime(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+}
+
+
 const registerForm = document.getElementById('registerForm');
 registerForm.addEventListener('submit', function (e) {
     e.preventDefault();
     
     const formData = new FormData(registerForm);
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzmvsbPgRj6VthxgzyPnPc36BCeCt4qBycbiQ_OzdzM-bjlyu5-prMcdMVNZ_Hli2hzGQ/exec';
+
+    // Get the current date and time
+    const currentTime = new Date();
+    const formattedTime = formatDateTime(currentTime);
+
+    // Append the current date and time to form data
+    formData.append('submissionTime', formattedTime);
 
     // Show loading message
     const loadingMessage = document.createElement('div');
@@ -150,7 +168,7 @@ registerForm.addEventListener('submit', function (e) {
         })
         .catch(error => {
             console.error('Error!', error.message);
-            // You might want to log this error or handle it in some way
+            // Handle error here if necessary
         });
 });
 // Scroll animations
