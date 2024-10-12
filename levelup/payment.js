@@ -2,6 +2,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitTransaction = document.getElementById('submitTransaction');
     const transactionIdInput = document.getElementById('transactionId');
 
+    // Function to format the current date and time
+    function formatDateTime(date) {
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+        const year = date.getFullYear();
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+        return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+    }
+
     submitTransaction.addEventListener('click', function() {
         const transactionId = transactionIdInput.value.trim();
         if (transactionId === '') {
@@ -13,11 +24,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const studentEmail = localStorage.getItem('studentEmail');
         const studentPhone = localStorage.getItem('studentPhone');
 
+        // Get the current date and time
+        const currentTime = new Date();
+        const formattedTime = formatDateTime(currentTime);
+
         const formData = new FormData();
         formData.append('fullName', studentName);
         formData.append('email', studentEmail);
         formData.append('phone', studentPhone);
         formData.append('transactionId', transactionId);
+
+        // Append the current date and time
+        formData.append('submissionTime', formattedTime);
 
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzmvsbPgRj6VthxgzyPnPc36BCeCt4qBycbiQ_OzdzM-bjlyu5-prMcdMVNZ_Hli2hzGQ/exec';
 
