@@ -1,7 +1,7 @@
 // Play background music
-window.addEventListener("clcik" , ()=>{
-    document.getElementById("background-music").play();
-  })
+// window.addEventListener("clcik" , ()=>{
+//     document.getElementById("background-music").play();
+//   })
 
 // Define team members data
 const teamMembers = [
