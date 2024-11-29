@@ -122,28 +122,21 @@
                         </span>
                     </a>
                     <h1>MWS</h1>
-                    <div class="notes-container">
-                        <div class="notes-address">
-                            <div class="notes-name">
-                                <p>Unit 1</p>
+                    <div class="notes">
+                        <!-- Add an id attribute to the iframe -->
+                        <iframe id="notesFrame"
+                        src="https://drive.google.com/file/d/1V6odXfz0VHBY6Hx70Y7rufCINsxFRrKv/preview"
+                        frameborder="0"></iframe>
+                        <!-- Add a loading message -->
+                        <div class="loading-message" id="loadingMessage">Loading...</div>
+                    </div>
+                    <div class="notes-buttons">
+                        <!-- Add your buttons here-->
+                        <button onclick="showNotes('https://drive.google.com/file/d/1V6odXfz0VHBY6Hx70Y7rufCINsxFRrKv/preview')">Reference 1</button> 
+                        <button onclick="showNotes('https://drive.google.com/file/d/1GFs1T2TJ-XNsSOpPpAhs92FHq8u4wikp/preview')">Reference 2</button> 
+                        <!-- Add more buttons as needed -->
+                    </div>
 
-                            </div>
-                            <div>
-                                <p>Notes</p>
-                            </div>
-                            <div class="full-screen">
-                                <!-- <div><i class="fa-solid fa-expand"></i> </div> -->
-                                <div><i class="fa-solid fa-maximize"></i></div>
-                            </div>
-                        </div>
-                        <div class="notes">
-                            <!-- Add an id attribute to the iframe -->
-                            <iframe id="notesFrame"
-                                src="https://drive.google.com/file/d/1GFs1T2TJ-XNsSOpPpAhs92FHq8u4wikp/preview"
-                                frameborder="0"></iframe>
-                            <!-- Add a loading message -->
-                            <div class="loading-message" id="loadingMessage">Loading...</div>
-                        </div>
                         <div class="syllabus-container">
                             <p>Unit-1 Syllabus</p>
                             <div class="syllabus">
