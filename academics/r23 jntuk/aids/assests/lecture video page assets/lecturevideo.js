@@ -1,11 +1,6 @@
 const mainVideo = document.querySelector('#main-Video');
 const buttons = document.querySelectorAll('.button-container button');
 
-function playVideo(videoId) {
-    const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    mainVideo.src = videoUrl;
-    updateButtonIcons(videoId);
-}
 
 function updateButtonIcons(currentVideoId) {
     buttons.forEach(button => {
@@ -37,50 +32,54 @@ buttons.forEach(button => {
 
 const summaryText = document.getElementById('summary-text');
 
+
+
 function playVideo(videoId) {
-  const videoUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-  mainVideo.src = videoUrl;
-  updateButtonIcons(videoId);
+    const cleanVideoId = videoId.split('?')[0];
 
-  // Get the clicked button
-  const clickedButton = event.target;
+    const videoUrl = `https://www.youtube.com/embed/${cleanVideoId}?autoplay=1`;
+    mainVideo.src = videoUrl;
+    updateButtonIcons(videoId);
 
-  // Check if the clicked button has a parent <details> element
-  const parentDetails = clickedButton.closest('details');
+    // Get the clicked button
+    const clickedButton = event.target;
 
-  let summaryTextContent = '';
+    // Check if the clicked button has a parent <details> element
+    const parentDetails = clickedButton.closest('details');
 
-  // If the parent <details> element exists
-  if (parentDetails) {
-      // Get the summary text from the <summary> element
-      const summaryText = parentDetails.querySelector('summary').textContent;
-      const buttonText = clickedButton.textContent.replace(/Pause|play_arrow/gi, '').trim();
-      summaryTextContent = `Lecture On: ${summaryText} - ${buttonText}`;
-  } else {
-      // If there is no parent <details> element, display only the button text
-      const buttonText = clickedButton.textContent.replace(/Pause|play_arrow/gi, '').trim();
-      summaryTextContent = `Lecture On: ${buttonText}`;
-  }
+    let summaryTextContent = '';
 
-  // Update the summary text element with the new content
-  document.getElementById('summary-text').innerHTML = summaryTextContent;
+    // If the parent <details> element exists
+    if (parentDetails) {
+        // Get the summary text from the <summary> element
+        const summaryText = parentDetails.querySelector('summary').textContent;
+        const buttonText = clickedButton.textContent.replace(/Pause|play_arrow/gi, '').trim();
+        summaryTextContent = `Lecture On: ${summaryText} - ${buttonText}`;
+    } else {
+        // If there is no parent <details> element, display only the button text
+        const buttonText = clickedButton.textContent.replace(/Pause|play_arrow/gi, '').trim();
+        summaryTextContent = `Lecture On: ${buttonText}`;
+    }
+
+    // Update the summary text element with the new content
+    document.getElementById('summary-text').innerHTML = summaryTextContent;
 }
 const header = document.querySelector('.header');
 const mainContent = document.querySelector('.main-content');
 let prevScrollPos = window.pageYOffset;
 
-mainContent.addEventListener('scroll', function() {
-  const currentScrollPos = mainContent.scrollTop;
+mainContent.addEventListener('scroll', function () {
+    const currentScrollPos = mainContent.scrollTop;
 
-  if (prevScrollPos > currentScrollPos) {
-    // Scrolling up, show the header
-    header.style.top = '0';
-  } else {
-    // Scrolling down, hide the header
-    header.style.top = `-${header.offsetHeight}px`;
-  }
+    if (prevScrollPos > currentScrollPos) {
+        // Scrolling up, show the header
+        header.style.top = '0';
+    } else {
+        // Scrolling down, hide the header
+        header.style.top = `-${header.offsetHeight}px`;
+    }
 
-  prevScrollPos = currentScrollPos;
+    prevScrollPos = currentScrollPos;
 });
 
 
