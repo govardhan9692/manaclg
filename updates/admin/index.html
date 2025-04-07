@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManaClg Admin - Updates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="admin-header" id="adminHeader" style="display: none;">
+        <div class="header-left">
+            <a href="#" class="admin-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>ManaClg Admin</span>
+            </a>
+        </div>
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </header>
+    
+    <div class="admin-container">
+        <div id="loginSection" class="auth-section">
+            <h2><i class="fas fa-lock"></i> Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Email Address</label>
+                    <input type="email" id="adminEmail" placeholder="Enter your admin email" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+            </form>
+        </div>
+
+        <div id="updateSection" style="display: none;">
+            <div class="update-section">
+                <div class="section-title">
+                    <h2><i class="fas fa-edit"></i> Manage Updates</h2>
+                </div>
+                <form id="updateForm">
+                    <input type="hidden" id="updateId">
+                    
+                    <div class="form-group">
+                        <label for="updateTitle">Update Title</label>
+                        <input type="text" id="updateTitle" placeholder="Enter update title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="updateCategory">Category</label>
+                        <select id="updateCategory" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="jntuk-1st-year">JNTUK 1st Year</option>
+                            <option value="jntuk-2nd-year">JNTUK 2nd Year</option>
+                            <option value="jntuk-3rd-year">JNTUK 3rd Year</option>
+                            <option value="jntuk-4th-year">JNTUK 4th Year</option>
+                            <option value="jobs">Jobs</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="updateContent">Update Content</label>
+                        <textarea id="updateContent" placeholder="Enter update content" required></textarea>
+                    </div>
+                    
+                    <div class="file-inputs">
+                        <div class="file-input">
+                            <label for="updateImage">
+                                <i class="fas fa-image"></i> Add Image
+                            </label>
+                            <input type="file" id="updateImage" accept="image/*">
+                            <div id="imagePreview"></div>
+                        </div>
+                        
+                        <div class="file-input">
+                            <label for="updatePDF">
+                                <i class="fas fa-file-pdf"></i> Add PDF
+                            </label>
+                            <input type="file" id="updatePDF" accept="application/pdf">
+                            <div id="pdfPreview"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Post Update</button>
+                        <button type="button" id="cancelBtn" style="display: none;"><i class="fas fa-times"></i> Cancel Edit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="updatesList" class="updates-list">
+                <div class="section-title">
+                    <h3><i class="fas fa-list"></i> Existing Updates</h3>
+                    <button id="refreshUpdates" class="refresh-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+                </div>
+                <div id="updatesLoading" class="loading">
+                    <div class="spinner"></div>
+                    <span>Loading updates...</span>
+                </div>
+                <div class="updates-container">
+                    <!-- Updates will be listed here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="./admin.js"></script>
+</body>
+</html>

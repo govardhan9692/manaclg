@@ -4,25 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mana Clg Version 1.0</title>
+    <title>Update Details - ManaClg</title>
     <link rel="stylesheet" href="./styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
 </head>
 <body>
-
     <header class="header">
         <div class="menu-icon" onclick="toggleLeftSidebar()">
             <span class="material-symbols-outlined">menu</span>
         </div>
 
-        <div id="logo-section"><a href="index.html" class="logo">MANACLG</a>
+        <div id="logo-section"><a href="../index.html" class="logo">MANACLG</a>
             <nav class="social-media">
                 <div class="sm"><a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a></div>
                 <div class="sm"><a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i
@@ -39,7 +36,6 @@
                 <div class="sm"><a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a></div>
             </nav>
         </div>
-
 
         <nav class="navbar">
             <a href="../information manaclg/our mission page/ourmission.html">Our Mission</a>
@@ -75,29 +71,27 @@
 
         </nav>
     </header>
+
     <div class="container">
         <aside id="options-container" class="left-sidebar">
-            <a href="../index.html" class="left-sidebar-icon  ">
+            <a href="../index.html" class="left-sidebar-icon">
                 <div class="left-sidebar-icon" id="home">
                     <i class="fa fa-home"></i>
                     <span>Home</span>
                 </div>
             </a>
-            <a href="../updates/index.html" class="left-sidebar-icon stay">
+            <a href="./index.html" class="left-sidebar-icon stay">
                 <div class="left-sidebar-icon" id="updates">
                     <i class="fas fa-sync-alt"></i>
                     <span>Updates</span>
                 </div>
             </a>
-
             <a href="../levelup/levelup.html" class="left-sidebar-icon">
                 <div class="left-sidebar-icon" id="levelup">
                     <i class="fas fa-level-up-alt"></i>
                     <span>Level Up</span>
                 </div>
             </a>
-
-
             <a href="../profile/index.html" class="left-sidebar-icon">
                 <div class="left-sidebar-icon" id="profile">
                     <i class="fa fa-user"></i>
@@ -107,40 +101,19 @@
         </aside>
 
         <main class="content">
-
             <div class="main-content">
                 <div class="updates-container">
-                    <div class="updates-header">
-                        <h2>Updates</h2>
-                        <div class="search-bar">
-                            <input type="text" id="searchInput" placeholder="Search updates...">
-                            <i class="fa-solid fa-search"></i>
-                        </div>
-                        <div class="filters">
-                            <div class="filter-dropdown">
-                                <button class="filter-btn">Filter: All <i
-                                        class="fa-solid fa-chevron-down"></i></button>
-                                <div class="filter-content">
-                                    <a href="#" data-filter="all">All</a>
-                                    <a href="#" data-filter="jntuk-1st-year">JNTUK 1st Year</a>
-                                    <a href="#" data-filter="jntuk-2nd-year">JNTUK 2nd Year</a>
-                                    <a href="#" data-filter="jntuk-3rd-year">JNTUK 3rd Year</a>
-                                    <a href="#" data-filter="jntuk-4th-year">JNTUK 4th Year</a>
-                                    <a href="#" data-filter="jobs">Jobs</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="update-list" id="updateList">
-                        <!-- Updates will be loaded dynamically as cards -->
+                    <a href="./index.html" class="back-btn">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Updates
+                    </a>
+                    
+                    <div class="update-details" id="updateDetails">
                         <div class="loading-indicator">
-                            <i class="fa-solid fa-spinner fa-spin"></i> Loading updates...
+                            <i class="fa-solid fa-spinner fa-spin"></i> Loading update details...
                         </div>
                     </div>
-                    <div class="no-results" id="noResults" style="display: none;">No matching updates found.</div>
                 </div>
             </div>
-
         </main>
     </div>
 
@@ -151,7 +124,7 @@
 
     <footer>
         <div class="col">
-            <p> © 2024, <a href="./index.html">MANACLG</a> ,All rights reserved. FOUNDED BY <a href="./index.html">DREAM
+            <p> © 2024, <a href="../index.html">MANACLG</a> ,All rights reserved. FOUNDED BY <a href="../index.html">DREAM
                     TEAM.</a></p>
         </div>
         <div class="socialIcons">
@@ -163,16 +136,12 @@
             <a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.facebook.com/profile.php?id=61551901873724"><i class='bx bxl-facebook'></i></a>
             <a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a>
-
         </div>
     </footer>
 
-    <!-- Add these scripts before your custom scripts -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./script.js"></script>
-    <script src="./updates.js"></script>
+    <script src="./detail.js"></script>
+    <script src="../script.js"></script>
 </body>
-
 </html>
