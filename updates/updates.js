@@ -26,7 +26,7 @@ let unsubscribe = null; // Store the listener to unsubscribe later if needed
 // Function to load updates with real-time listener
 function loadUpdates() {
     // Display loading indicator first
-    updateList.innerHTML = '<div class="loading-indicator"><i class="fa-solid fa-spinner fa-spin"></i> Loading updates...</div>';
+    updateList.innerHTML = '<div class="loading-indicator"><i class="fa-solid fa-spinner fa-spin"></i><span>Loading updates...</span></div>';
     
     // If we already have a listener, unsubscribe first
     if (unsubscribe) {
@@ -94,49 +94,93 @@ function displayUpdates(updates) {
         card.className = 'update-card';
         
         // Format the date if timestamp exists
-        const date = update.timestamp ? new Date(update.timestamp.seconds * 1000).toLocaleDateString() : 'No date';
+        const date = update.timestamp 
+            ? new Date(update.timestamp.seconds * 1000).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long', 
+                day: 'numeric'
+              }) 
+            : 'No date';
+            
+        // Check if attachments exist
+        const hasImage = update.imageUrl && update.imageUrl.trim() !== '';
+        const hasPDF = update.pdfUrl && update.pdfUrl.trim() !== '';
         
         card.innerHTML = `
             <div class="card-content">
-                <div class="card-title">${update.title}</div>
-                <div class="card-category">${update.category.replace(/-/g, ' ')}</div>
-                <div class="card-text">${update.content.substring(0, 150)}${update.content.length > 150 ? '...' : ''}</div>
-                <div class="card-meta">
-                    <span class="card-date">${date}</span>
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <h2 class="card-title">${update.title}</h2>
+                        <div class="card-meta">
+                            <span class="card-category">${update.category.replace(/-/g, ' ')}</span>
+                        </div>
+                    </div>
+                    <span class="card-date"><i class="far fa-calendar"></i> ${date}</span>
                 </div>
+                <div class="card-text">${update.content.substring(0, 200)}${update.content.length > 200 ? '...' : ''}</div>
                 <div class="card-actions">
-                    <a href="detail.html?id=${update.id}" class="view-details-btn">
-                        View Details <i class="fas fa-arrow-right"></i>
-                    </a>
                     <div class="card-attachments">
-                        ${update.imageUrl ? 
-                            `<button class="attachment-btn image-btn" onclick="previewImage('${update.imageUrl}', event)">
-                                <i class="fa-solid fa-image"></i>
-                             </button>` : ''}
-                        ${update.pdfUrl ? 
-                            `<button class="attachment-btn pdf-btn" onclick="previewPDF('${update.pdfUrl}', event)">
-                                <i class="fa-solid fa-file-pdf"></i>
-                             </button>` : ''}
+                        ${hasImage ? 
+                            `<div class="attachment-indicator image-indicator" onclick="previewImage('${update.imageUrl}', event)">
+                                <i class="fas fa-image"></i> View Image
+                             </div>` : ''}
+                        ${hasPDF ? 
+                            `<div class="attachment-indicator pdf-indicator" onclick="previewPDF('${update.pdfUrl}', event)">
+                                <i class="fas fa-file-pdf"></i> View PDF
+                             </div>` : ''}
                     </div>
                 </div>
             </div>
         `;
         
+        // Make entire card clickable to navigate to details
+        card.addEventListener('click', (e) => {
+            // Don't navigate if clicking on an attachment indicator
+            if (!e.target.closest('.attachment-indicator')) {
+                window.location.href = `detail.html?id=${update.id}`;
+            }
+        });
+        
         updateList.appendChild(card);
     });
 }
 
-// Function to preview image in modal
+// Function to preview image in modal - with improved error handling
 window.previewImage = (imageUrl, event) => {
-    event.preventDefault();
-    event.stopPropagation();
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
     
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    const closeBtn = document.querySelector('.close-modal');
     
-    modalImage.src = imageUrl;
+    if (!modal || !modalImage) {
+        console.error("Modal elements not found");
+        return;
+    }
+    
+    console.log("Preview image:", imageUrl);
+    
+    // Show loading state
+    modalImage.src = '';
     modal.style.display = 'block';
+    modalImage.style.opacity = '0';
+    
+    // Handle image loading
+    modalImage.onload = function() {
+        modalImage.style.opacity = '1';
+        console.log("Modal image loaded successfully");
+    };
+    
+    modalImage.onerror = function() {
+        console.error("Failed to load image in modal:", imageUrl);
+        modalImage.src = "../assets/image-error.png"; // Fallback image
+        modalImage.style.opacity = "1";
+    };
+    
+    // Set the image source after attaching event handlers
+    modalImage.src = imageUrl;
     
     // Prevent scrolling when modal is open
     document.body.style.overflow = 'hidden';

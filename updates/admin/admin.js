@@ -329,62 +329,87 @@ updateForm.addEventListener('submit', async (e) => {
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         };
 
+        // Keep track of original values when editing
+        let originalData = {};
+        if (updateId) {
+            const doc = await db.collection('updates').doc(updateId).get();
+            originalData = doc.data() || {};
+        }
+
         // Handle image upload to Cloudinary
         if (imageFile) {
             const formData = new FormData();
             formData.append('file', imageFile);
             formData.append('upload_preset', 'manaclgupdates');
 
-            const response = await fetch(
-                'https://api.cloudinary.com/v1_1/dkg4ghjsh/image/upload',
-                {
-                    method: 'POST',
-                    body: formData
+            console.log("Uploading image:", imageFile.name);
+            
+            try {
+                const response = await fetch(
+                    'https://api.cloudinary.com/v1_1/dkg4ghjsh/image/upload',
+                    {
+                        method: 'POST',
+                        body: formData
+                    }
+                );
+                
+                if (!response.ok) {
+                    throw new Error(`Image upload failed with status: ${response.status}`);
                 }
-            );
-            const data = await response.json();
-            updateData.imageUrl = data.secure_url;
-        } else if (!updateId) {
-            // If no image selected for a new update, don't change any existing image
-            updateData.imageUrl = null;
+                
+                const data = await response.json();
+                console.log("Image upload successful:", data.secure_url);
+                updateData.imageUrl = data.secure_url;
+            } catch (imageError) {
+                console.error("Image upload error:", imageError);
+                throw new Error(`Image upload failed: ${imageError.message}`);
+            }
+        } else if (!imageFile && updateId) {
+            // When editing, keep the original image URL if no new image is selected
+            if (originalData.imageUrl) {
+                updateData.imageUrl = originalData.imageUrl;
+            }
         }
 
         // Handle PDF upload to Supabase
         if (pdfFile) {
             const fileName = `${Date.now()}-${pdfFile.name}`;
-            const { error: uploadError } = await supabaseClient.storage
-                .from('pdfs')
-                .upload(fileName, pdfFile, {
-                    cacheControl: '3600',
-                    upsert: false
-                });
+            console.log("Uploading PDF:", fileName);
+            
+            try {
+                const { error: uploadError, data: uploadData } = await supabaseClient.storage
+                    .from('pdfs')
+                    .upload(fileName, pdfFile, {
+                        cacheControl: '3600',
+                        upsert: false
+                    });
 
-            if (uploadError) throw uploadError;
+                if (uploadError) throw uploadError;
 
-            const { data: { publicUrl } } = supabaseClient.storage
-                .from('pdfs')
-                .getPublicUrl(fileName);
+                console.log("PDF upload successful:", fileName);
+                
+                const { data: { publicUrl } } = supabaseClient.storage
+                    .from('pdfs')
+                    .getPublicUrl(fileName);
 
-            updateData.pdfUrl = publicUrl;
-        } else if (!updateId) {
-            // If no PDF selected for a new update, don't change any existing PDF
-            updateData.pdfUrl = null;
+                console.log("PDF public URL:", publicUrl);
+                updateData.pdfUrl = publicUrl;
+            } catch (pdfError) {
+                console.error("PDF upload error:", pdfError);
+                throw new Error(`PDF upload failed: ${pdfError.message}`);
+            }
+        } else if (!pdfFile && updateId) {
+            // When editing, keep the original PDF URL if no new PDF is selected
+            if (originalData.pdfUrl) {
+                updateData.pdfUrl = originalData.pdfUrl;
+            }
         }
+
+        console.log("Saving update with data:", updateData);
 
         // Save to Firebase
         if (updateId) {
-            // When editing, only update the fields that are provided
-            const updateDataFiltered = {};
-            Object.keys(updateData).forEach(key => {
-                // Only include if the file was selected or it's not an image/pdf field
-                if ((key !== 'imageUrl' || imageFile) && 
-                    (key !== 'pdfUrl' || pdfFile) ||
-                    (key !== 'imageUrl' && key !== 'pdfUrl')) {
-                    updateDataFiltered[key] = updateData[key];
-                }
-            });
-            
-            await db.collection('updates').doc(updateId).update(updateDataFiltered);
+            await db.collection('updates').doc(updateId).update(updateData);
             showAlert('success', 'Update modified successfully!');
         } else {
             await db.collection('updates').add(updateData);
@@ -394,6 +419,7 @@ updateForm.addEventListener('submit', async (e) => {
         resetForm();
         loadUpdates();
     } catch (error) {
+        console.error("Form submission error:", error);
         showAlert('error', `Error: ${error.message}`);
     } finally {
         submitBtn.disabled = false;

@@ -59,6 +59,9 @@ async function loadUpdateDetails() {
             const update = doc.data();
             document.title = `${update.title} - ManaClg Updates`;
             
+            // Log the update data for debugging
+            console.log("Update data:", update);
+            
             // Format date if timestamp exists
             const date = update.timestamp 
                 ? new Date(update.timestamp.seconds * 1000).toLocaleDateString('en-US', {
@@ -70,9 +73,16 @@ async function loadUpdateDetails() {
 
             // Process content to properly format paragraphs
             const formattedContent = update.content
-                .replace(/\n{2,}/g, '</p><p>') // Convert multiple newlines to paragraph breaks
-                .replace(/\n/g, '<br>') // Convert single newlines to line breaks
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Support basic markdown bold syntax
+                .replace(/\n{2,}/g, '</p><p>') 
+                .replace(/\n/g, '<br>') 
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                
+            // Check if image and PDF URLs exist
+            const hasImage = update.imageUrl && update.imageUrl.trim() !== '';
+            const hasPDF = update.pdfUrl && update.pdfUrl.trim() !== '';
+            
+            console.log("Has image:", hasImage, update.imageUrl);
+            console.log("Has PDF:", hasPDF, update.pdfUrl);
 
             updateDetailsContainer.innerHTML = `
                 <div class="details-header">
@@ -89,34 +99,73 @@ async function loadUpdateDetails() {
                     </div>
                 </div>
                 
+                ${(hasImage || hasPDF) ? `
                 <div class="details-attachments">
-                    ${update.imageUrl ? `
-                        <h3 class="attachments-title">Images</h3>
-                        <div class="details-image">
-                            <img src="${update.imageUrl}" alt="${update.title}" onclick="openImageModal(this.src)">
-                        </div>
-                    ` : ''}
+                    <h3 class="attachments-title">Attachments</h3>
+                    <div class="details-attachments-grid">
+                        ${hasImage ? `
+                            <div class="details-attachment-item">
+                                <h4 class="attachment-subtitle">Image</h4>
+                                <div class="details-image" id="detailsImage">
+                                    <img src="${update.imageUrl}" alt="${update.title}" 
+                                         onclick="openImageModal('${update.imageUrl}')"
+                                         onerror="handleImageError(this)">
+                                    <div class="image-overlay">
+                                        <span class="image-view-text">View full image</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ` : ''}
+                        
+                        ${hasPDF ? `
+                            <div class="details-attachment-item">
+                                <h4 class="attachment-subtitle">Document</h4>
+                                <div class="pdf-frame-container">
+                                    <iframe src="${update.pdfUrl}" 
+                                            class="pdf-frame"
+                                            title="PDF Document" 
+                                            allowfullscreen
+                                            onload="checkPdfLoaded(this)"
+                                            onerror="handlePdfError(this)">
+                                    </iframe>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+                ` : ''}
+            `;
+
+            // Check if PDF can load - removed forced fallback so that the iframe is always displayed
+            if (hasPDF) {
+                /* Removed fallback display logic
+                setTimeout(() => {
+                    const pdfFrame = document.getElementById('pdfFrame');
+                    const pdfFallback = document.getElementById('pdfFallback');
                     
-                    ${update.pdfUrl ? `
-                        <h3 class="attachments-title">Documents</h3>
-                        <a href="${update.pdfUrl}" target="_blank" class="details-pdf">
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <span>View PDF Document</span>
-                        </a>
-                    ` : ''}
-                </div>
-            `;
-        }, (error) => {
-            console.error("Error loading update details:", error);
-            updateDetailsContainer.innerHTML = `
-                <div class="error-message">
-                    <h3>Error loading update</h3>
-                    <p>There was an error loading the update details. Please try again later.</p>
-                </div>
-            `;
+                    if (pdfFrame && pdfFallback) {
+                        pdfFrame.style.display = 'none';
+                        pdfFallback.style.display = 'flex';
+                    }
+                }, 500);
+                */
+            }
+
+            // Make sure image modal works: bind click event on the image container
+            setTimeout(() => {
+                const detailsImageContainer = document.querySelector('.details-image');
+                if (detailsImageContainer) {
+                    detailsImageContainer.addEventListener('click', function() {
+                        const img = this.querySelector('img');
+                        if(img && img.src) {
+                            openImageModal(img.src);
+                        }
+                    });
+                }
+            }, 500);
         });
     } catch (error) {
-        console.error("Error setting up update listener:", error);
+        console.error("Error loading update details:", error);
         updateDetailsContainer.innerHTML = `
             <div class="error-message">
                 <h3>Error loading update</h3>
@@ -133,25 +182,94 @@ window.addEventListener('beforeunload', () => {
     }
 });
 
+// Track PDF clicks and provide fallback
+window.trackPdfClick = (pdfUrl) => {
+    console.log("PDF clicked:", pdfUrl);
+    
+    // If PDF fails to open, provide alternative actions
+    setTimeout(() => {
+        const confirmDownload = confirm("If the PDF didn't open correctly, would you like to download it directly?");
+        if (confirmDownload) {
+            const a = document.createElement('a');
+            a.href = pdfUrl;
+            a.download = pdfUrl.split('/').pop() || 'document.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    }, 3000);
+    
+    return true;
+};
+
+// Handle image errors
+window.handleImageError = (imgElement) => {
+    console.error("Failed to load image:", imgElement.src);
+    
+    // Find the parent details-image div and add error class
+    const imageContainer = imgElement.closest('.details-image');
+    if (imageContainer) {
+        imageContainer.classList.add('image-error');
+        imageContainer.innerHTML = ''; // Clear contents
+    }
+};
+
+// Handle PDF errors with improved detection
+window.handlePdfError = (pdfFrame, fallbackElement) => {
+    if (!fallbackElement) {
+        fallbackElement = document.getElementById('pdfFallback');
+    }
+    
+    if (pdfFrame) {
+        pdfFrame.style.display = 'none';
+    }
+    
+    if (fallbackElement) {
+        fallbackElement.style.display = 'flex';
+    }
+    
+    console.error("Failed to load PDF in iframe");
+};
+
 // Enhanced image modal functionality
 window.openImageModal = (src) => {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     
-    modalImg.src = src;
+    if (!modal || !modalImg) {
+        console.error("Modal elements not found");
+        return;
+    }
+    
+    console.log("Opening modal with image:", src);
     modal.style.display = "block";
     
     // Add loading indication
     modalImg.style.opacity = "0";
+    modalImg.src = src;
     
     // When image loads, fade it in
     modalImg.onload = function() {
+        console.log("Image loaded successfully in modal");
         modalImg.style.transition = "opacity 0.3s ease";
+        modalImg.style.opacity = "1";
+    };
+    
+    // Handle image load errors
+    modalImg.onerror = function() {
+        console.error("Failed to load image in modal:", src);
+        modalImg.src = "../assets/image-error.png"; // Fallback image
         modalImg.style.opacity = "1";
     };
     
     // Prevent scrolling when modal is open
     document.body.style.overflow = 'hidden';
+};
+
+// Add this helper function to check if PDF loaded successfully
+window.checkPdfLoaded = function(iframe) {
+    // This is just a placeholder - PDFs in iframes are problematic
+    // We'll rely on the direct open/download approach as default
 };
 
 // Initialize
@@ -180,6 +298,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (modeToggle2) {
         modeToggle2.addEventListener('click', toggleDarkMode);
+    }
+
+    // Set up image modal close button
+    const closeModalBtn = document.querySelector('.close-modal');
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+    }
+
+    // Close modal when clicking outside the image
+    const imageModal = document.getElementById('imageModal');
+    if (imageModal) {
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        });
     }
 });
 
