@@ -68,6 +68,12 @@ async function loadUpdateDetails() {
                   })
                 : 'No date';
 
+            // Process content to properly format paragraphs
+            const formattedContent = update.content
+                .replace(/\n{2,}/g, '</p><p>') // Convert multiple newlines to paragraph breaks
+                .replace(/\n/g, '<br>') // Convert single newlines to line breaks
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Support basic markdown bold syntax
+
             updateDetailsContainer.innerHTML = `
                 <div class="details-header">
                     <h1 class="details-title">${update.title}</h1>
@@ -79,7 +85,7 @@ async function loadUpdateDetails() {
                 
                 <div class="details-content-wrapper">
                     <div class="details-content">
-                        ${update.content.replace(/\n/g, '<br>')}
+                        <p>${formattedContent}</p>
                     </div>
                 </div>
                 
@@ -120,20 +126,29 @@ async function loadUpdateDetails() {
     }
 }
 
-// Clean up listener when navigating away
+// Clean up listener when navigating away from page
 window.addEventListener('beforeunload', () => {
     if (updateListener) {
         updateListener();
     }
 });
 
-// Function to open image in modal
+// Enhanced image modal functionality
 window.openImageModal = (src) => {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     
-    modal.style.display = "block";
     modalImg.src = src;
+    modal.style.display = "block";
+    
+    // Add loading indication
+    modalImg.style.opacity = "0";
+    
+    // When image loads, fade it in
+    modalImg.onload = function() {
+        modalImg.style.transition = "opacity 0.3s ease";
+        modalImg.style.opacity = "1";
+    };
     
     // Prevent scrolling when modal is open
     document.body.style.overflow = 'hidden';
