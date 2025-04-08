@@ -20,22 +20,62 @@ const noResults = document.getElementById('noResults');
 // Load all updates
 let allUpdates = [];
 
-// Function to load updates
-async function loadUpdates() {
-    try {
-        const snapshot = await db.collection('updates')
-            .orderBy('timestamp', 'desc')
-            .get();
-        
-        allUpdates = snapshot.docs.map(doc => {
-            return { id: doc.id, ...doc.data() };
-        });
-        
-        displayUpdates(allUpdates);
-    } catch (error) {
-        console.error("Error loading updates:", error);
-        updateList.innerHTML = `<div class="error">Error loading updates. Please try again later.</div>`;
+// Use real-time listener instead of one-time fetch
+let unsubscribe = null; // Store the listener to unsubscribe later if needed
+
+// Function to load updates with real-time listener
+function loadUpdates() {
+    // Display loading indicator first
+    updateList.innerHTML = '<div class="loading-indicator"><i class="fa-solid fa-spinner fa-spin"></i> Loading updates...</div>';
+    
+    // If we already have a listener, unsubscribe first
+    if (unsubscribe) {
+        unsubscribe();
     }
+    
+    // Set up real-time listener
+    unsubscribe = db.collection('updates')
+        .orderBy('timestamp', 'desc')
+        .onSnapshot((snapshot) => {
+            // Handle real-time updates
+            allUpdates = snapshot.docs.map(doc => {
+                return { id: doc.id, ...doc.data() };
+            });
+            
+            // Display updates using our existing function
+            displayUpdates(allUpdates);
+            
+            // If we have a search term, filter the results
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            if (searchTerm) {
+                const filteredUpdates = filterUpdates(searchTerm);
+                displayUpdates(filteredUpdates);
+            }
+            
+            // If we have a filter applied, apply it
+            const activeFilter = document.querySelector('.filter-content a.active');
+            if (activeFilter && activeFilter.getAttribute('data-filter') !== 'all') {
+                const filterValue = activeFilter.getAttribute('data-filter');
+                const filteredUpdates = allUpdates.filter(update => {
+                    return update.category === filterValue;
+                });
+                displayUpdates(filteredUpdates);
+            }
+        }, (error) => {
+            console.error("Error loading updates:", error);
+            updateList.innerHTML = `<div class="error">Error loading updates. Please try again later.</div>`;
+        });
+}
+
+// Helper function to filter updates by search term
+function filterUpdates(searchTerm) {
+    return allUpdates.filter(update => {
+        return (
+            update.title.toLowerCase().includes(searchTerm) ||
+            update.content.toLowerCase().includes(searchTerm) ||
+            update.category.toLowerCase().includes(searchTerm)
+        );
+    });
 }
 
 // Function to display updates as cards
@@ -110,7 +150,7 @@ window.previewPDF = (pdfUrl, event) => {
     window.open(pdfUrl, '_blank');
 };
 
-// Search functionality
+// Search functionality - refactored for better integration with real-time updates
 searchInput.addEventListener('input', () => {
     const searchTerm = searchInput.value.toLowerCase().trim();
     
@@ -119,14 +159,7 @@ searchInput.addEventListener('input', () => {
         return;
     }
     
-    const filteredUpdates = allUpdates.filter(update => {
-        return (
-            update.title.toLowerCase().includes(searchTerm) ||
-            update.content.toLowerCase().includes(searchTerm) ||
-            update.category.toLowerCase().includes(searchTerm)
-        );
-    });
-    
+    const filteredUpdates = filterUpdates(searchTerm);
     displayUpdates(filteredUpdates);
 });
 
@@ -221,5 +254,12 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && imageModal.style.display === 'block') {
         imageModal.style.display = 'none';
         document.body.style.overflow = ''; // Restore scrolling
+    }
+});
+
+// Ensure we clean up when the page unloads
+window.addEventListener('beforeunload', () => {
+    if (unsubscribe) {
+        unsubscribe();
     }
 });

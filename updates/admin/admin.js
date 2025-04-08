@@ -102,6 +102,11 @@ auth.onAuthStateChanged((user) => {
 if (logoutBtn) {
     logoutBtn.addEventListener('click', async () => {
         try {
+            // Clean up listener before logging out
+            if (updatesListener) {
+                updatesListener();
+                updatesListener = null;
+            }
             await auth.signOut();
         } catch (error) {
             showAlert('error', `Logout failed: ${error.message}`);
@@ -125,31 +130,44 @@ function showAlert(type, message) {
     }, 5000);
 }
 
-// Load existing updates
+// Store the snapshot listener
+let updatesListener = null;
+
+// Load existing updates with real-time listener
 async function loadUpdates() {
     updatesLoading.style.display = 'flex';
     updatesList.innerHTML = '';
     
+    // If we already have a listener, unsubscribe
+    if (updatesListener) {
+        updatesListener();
+    }
+    
     try {
-        const snapshot = await db.collection('updates')
+        // Set up real-time listener
+        updatesListener = db.collection('updates')
             .orderBy('timestamp', 'desc')
-            .get();
+            .onSnapshot((snapshot) => {
+                updatesLoading.style.display = 'none';
+                updatesList.innerHTML = '';
+                
+                if (snapshot.empty) {
+                    updatesList.innerHTML = '<p class="no-updates">No updates found. Create your first update above.</p>';
+                    return;
+                }
 
-        updatesLoading.style.display = 'none';
-        
-        if (snapshot.empty) {
-            updatesList.innerHTML = '<p class="no-updates">No updates found. Create your first update above.</p>';
-            return;
-        }
-
-        snapshot.forEach((doc) => {
-            const update = doc.data();
-            const updateElement = createUpdateElement(doc.id, update);
-            updatesList.appendChild(updateElement);
-        });
+                snapshot.forEach((doc) => {
+                    const update = doc.data();
+                    const updateElement = createUpdateElement(doc.id, update);
+                    updatesList.appendChild(updateElement);
+                });
+            }, (error) => {
+                updatesLoading.style.display = 'none';
+                showAlert('error', `Error loading updates: ${error.message}`);
+            });
     } catch (error) {
         updatesLoading.style.display = 'none';
-        showAlert('error', `Error loading updates: ${error.message}`);
+        showAlert('error', `Error setting up updates listener: ${error.message}`);
     }
 }
 

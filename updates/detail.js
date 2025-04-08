@@ -22,7 +22,10 @@ function getUrlParam(name) {
 const updateId = getUrlParam('id');
 const updateDetailsContainer = document.getElementById('updateDetails');
 
-// Load update details
+// Use a real-time listener for update details
+let updateListener = null;
+
+// Load update details with real-time updates
 async function loadUpdateDetails() {
     if (!updateId) {
         updateDetailsContainer.innerHTML = `
@@ -38,62 +41,76 @@ async function loadUpdateDetails() {
     }
 
     try {
-        const doc = await db.collection('updates').doc(updateId).get();
-        
-        if (!doc.exists) {
+        // Set up a real-time listener for the update
+        updateListener = db.collection('updates').doc(updateId).onSnapshot((doc) => {
+            if (!doc.exists) {
+                updateDetailsContainer.innerHTML = `
+                    <div class="error-message">
+                        <h3>Update not found</h3>
+                        <p>The update you're looking for doesn't exist or has been removed.</p>
+                        <a href="./index.html" class="back-btn">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Updates
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            const update = doc.data();
+            document.title = `${update.title} - ManaClg Updates`;
+            
+            // Format date if timestamp exists
+            const date = update.timestamp 
+                ? new Date(update.timestamp.seconds * 1000).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })
+                : 'No date';
+
             updateDetailsContainer.innerHTML = `
-                <div class="error-message">
-                    <h3>Update not found</h3>
-                    <p>The update you're looking for doesn't exist or has been removed.</p>
+                <div class="details-header">
+                    <h1 class="details-title">${update.title}</h1>
+                    <div class="details-meta">
+                        <div class="details-category">${update.category.replace(/-/g, ' ')}</div>
+                        <div class="details-date">${date}</div>
+                    </div>
+                </div>
+                
+                <div class="details-content-wrapper">
+                    <div class="details-content">
+                        ${update.content.replace(/\n/g, '<br>')}
+                    </div>
+                </div>
+                
+                <div class="details-attachments">
+                    ${update.imageUrl ? `
+                        <h3 class="attachments-title">Images</h3>
+                        <div class="details-image">
+                            <img src="${update.imageUrl}" alt="${update.title}" onclick="openImageModal(this.src)">
+                        </div>
+                    ` : ''}
+                    
+                    ${update.pdfUrl ? `
+                        <h3 class="attachments-title">Documents</h3>
+                        <a href="${update.pdfUrl}" target="_blank" class="details-pdf">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>View PDF Document</span>
+                        </a>
+                    ` : ''}
                 </div>
             `;
-            return;
-        }
-
-        const update = doc.data();
-        document.title = `${update.title} - ManaClg Updates`;
-        
-        // Format date if timestamp exists
-        const date = update.timestamp 
-            ? new Date(update.timestamp.seconds * 1000).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })
-            : 'No date';
-
-        updateDetailsContainer.innerHTML = `
-            <div class="details-header">
-                <h1 class="details-title">${update.title}</h1>
-                <div class="details-meta">
-                    <div class="details-category">${update.category.replace(/-/g, ' ')}</div>
-                    <div class="details-date">${date}</div>
+        }, (error) => {
+            console.error("Error loading update details:", error);
+            updateDetailsContainer.innerHTML = `
+                <div class="error-message">
+                    <h3>Error loading update</h3>
+                    <p>There was an error loading the update details. Please try again later.</p>
                 </div>
-            </div>
-            
-            <div class="details-content">
-                ${update.content.replace(/\n/g, '<br>')}
-            </div>
-            
-            <div class="details-attachments">
-                ${update.imageUrl ? `
-                    <h3 class="attachments-title">Images</h3>
-                    <div class="details-image">
-                        <img src="${update.imageUrl}" alt="${update.title}" onclick="openImageModal(this.src)">
-                    </div>
-                ` : ''}
-                
-                ${update.pdfUrl ? `
-                    <h3 class="attachments-title">Documents</h3>
-                    <a href="${update.pdfUrl}" target="_blank" class="details-pdf">
-                        <i class="fa-solid fa-file-pdf"></i>
-                        <span>View PDF Document</span>
-                    </a>
-                ` : ''}
-            </div>
-        `;
+            `;
+        });
     } catch (error) {
-        console.error("Error loading update details:", error);
+        console.error("Error setting up update listener:", error);
         updateDetailsContainer.innerHTML = `
             <div class="error-message">
                 <h3>Error loading update</h3>
@@ -102,6 +119,13 @@ async function loadUpdateDetails() {
         `;
     }
 }
+
+// Clean up listener when navigating away
+window.addEventListener('beforeunload', () => {
+    if (updateListener) {
+        updateListener();
+    }
+});
 
 // Function to open image in modal
 window.openImageModal = (src) => {
