@@ -121,13 +121,48 @@ async function loadUpdateDetails() {
                             <div class="details-attachment-item">
                                 <h4 class="attachment-subtitle">Document</h4>
                                 <div class="pdf-frame-container">
-                                    <iframe src="${update.pdfUrl}" 
-                                            class="pdf-frame"
-                                            title="PDF Document" 
-                                            allowfullscreen
-                                            onload="checkPdfLoaded(this)"
-                                            onerror="handlePdfError(this)">
-                                    </iframe>
+                                    <!-- PDF toolbar with document name and actions -->
+                                    <div class="pdf-container-toolbar">
+                                        <div class="pdf-toolbar-title">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span>${update.pdfName || 'Document'}</span>
+                                        </div>
+                                        <div class="pdf-toolbar-actions">
+                                            <a href="${update.pdfUrl}" download="${update.pdfName || 'document.pdf'}" class="pdf-action-btn" title="Download PDF">
+                                                <i class="fas fa-download"></i>
+                                            </a>
+                                            <a href="#" class="pdf-action-btn pdf-view-btn" data-pdf="${update.pdfUrl}" data-name="${update.pdfName || 'Document'}" title="View Fullscreen">
+                                                <i class="fas fa-expand"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- PDF iframe wrapper -->
+                                    <div class="pdf-iframe-wrapper">
+                                        <!-- Loading spinner -->
+                                        <div class="pdf-loading-container" id="pdfLoading_${updateId}">
+                                            <div class="pdf-loading-spinner">
+                                                <i class="fas fa-spinner fa-spin"></i>
+                                            </div>
+                                            <p>Loading PDF...</p>
+                                        </div>
+                                        
+                                        <!-- PDF iframe -->
+                                        <iframe src="${update.pdfUrl}" 
+                                                class="pdf-frame"
+                                                title="PDF Document" 
+                                                allowfullscreen
+                                                onload="hideLoading('pdfLoading_${updateId}')"
+                                                onerror="handlePdfError(this)">
+                                        </iframe>
+                                    </div>
+                                    
+                                    <!-- Mobile-friendly view button -->
+                                    <div class="pdf-mobile-actions">
+                                        <button type="button" class="pdf-mobile-view-btn" onclick="openPdfModal('${update.pdfUrl}', '${update.pdfName || 'Document'}')">
+                                            <i class="fas fa-eye"></i> View PDF
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         ` : ''}
@@ -135,21 +170,6 @@ async function loadUpdateDetails() {
                 </div>
                 ` : ''}
             `;
-
-            // Check if PDF can load - removed forced fallback so that the iframe is always displayed
-            if (hasPDF) {
-                /* Removed fallback display logic
-                setTimeout(() => {
-                    const pdfFrame = document.getElementById('pdfFrame');
-                    const pdfFallback = document.getElementById('pdfFallback');
-                    
-                    if (pdfFrame && pdfFallback) {
-                        pdfFrame.style.display = 'none';
-                        pdfFallback.style.display = 'flex';
-                    }
-                }, 500);
-                */
-            }
 
             // Make sure image modal works: bind click event on the image container
             setTimeout(() => {
@@ -215,20 +235,29 @@ window.handleImageError = (imgElement) => {
 };
 
 // Handle PDF errors with improved detection
-window.handlePdfError = (pdfFrame, fallbackElement) => {
-    if (!fallbackElement) {
-        fallbackElement = document.getElementById('pdfFallback');
-    }
-    
-    if (pdfFrame) {
-        pdfFrame.style.display = 'none';
-    }
-    
-    if (fallbackElement) {
-        fallbackElement.style.display = 'flex';
-    }
-    
+window.handlePdfError = (pdfFrame) => {
     console.error("Failed to load PDF in iframe");
+    const container = pdfFrame.closest('.pdf-iframe-wrapper');
+    
+    if (container) {
+        // Create error message
+        const errorEl = document.createElement('div');
+        errorEl.className = 'pdf-error-message';
+        errorEl.innerHTML = `
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Failed to load PDF. Please use the download or view buttons.</p>
+        `;
+        
+        // Replace iframe with error message
+        pdfFrame.style.display = 'none';
+        container.appendChild(errorEl);
+        
+        // Make mobile actions visible
+        const mobileActions = container.parentNode.querySelector('.pdf-mobile-actions');
+        if (mobileActions) {
+            mobileActions.style.display = 'block';
+        }
+    }
 };
 
 // Enhanced image modal functionality
@@ -266,11 +295,97 @@ window.openImageModal = (src) => {
     document.body.style.overflow = 'hidden';
 };
 
-// Add this helper function to check if PDF loaded successfully
-window.checkPdfLoaded = function(iframe) {
-    // This is just a placeholder - PDFs in iframes are problematic
-    // We'll rely on the direct open/download approach as default
+// Add a function to hide loading indicator when PDF loads
+window.hideLoading = function(loadingId) {
+    const loadingElement = document.getElementById(loadingId);
+    if (loadingElement) {
+        loadingElement.classList.add('hidden');
+        // Remove it from DOM after animation completes
+        setTimeout(() => {
+            if (loadingElement.parentNode) {
+                loadingElement.parentNode.removeChild(loadingElement);
+            }
+        }, 300);
+    }
 };
+
+// PDF Modal function to show PDF in fullscreen modal
+function openPdfModal(pdfUrl, fileName) {
+    // First, check if there's already a modal
+    let pdfModal = document.querySelector('.pdf-modal');
+    
+    // If no modal exists, create one
+    if (!pdfModal) {
+        pdfModal = document.createElement('div');
+        pdfModal.className = 'pdf-modal';
+        pdfModal.innerHTML = `
+            <div class="pdf-modal-content">
+                <div class="pdf-toolbar">
+                    <div class="pdf-toolbar-title">${fileName}</div>
+                    <div class="pdf-toolbar-actions">
+                        <a href="${pdfUrl}" download="${fileName}" class="download-pdf">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <button class="close-pdf">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="pdf-container">
+                    <iframe src="${pdfUrl}" frameborder="0"></iframe>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(pdfModal);
+    } else {
+        // Update existing modal with new PDF
+        const iframe = pdfModal.querySelector('iframe');
+        const downloadBtn = pdfModal.querySelector('.download-pdf');
+        const titleEl = pdfModal.querySelector('.pdf-toolbar-title');
+        
+        // Update content
+        iframe.src = pdfUrl;
+        downloadBtn.href = pdfUrl;
+        downloadBtn.setAttribute('download', fileName);
+        titleEl.textContent = fileName;
+    }
+    
+    // Show modal (delayed to ensure proper animation)
+    setTimeout(() => {
+        pdfModal.classList.add('active');
+        // Prevent scrolling
+        document.body.style.overflow = 'hidden';
+    }, 10);
+    
+    // Make sure to set up the close button event listener after modal is created or updated
+    const closeBtn = pdfModal.querySelector('.close-pdf');
+    if (closeBtn) {
+        // Remove any existing event listeners to prevent duplicates
+        closeBtn.replaceWith(closeBtn.cloneNode(true));
+        
+        // Get the new button after replacement
+        const newCloseBtn = pdfModal.querySelector('.close-pdf');
+        
+        // Add event listener
+        newCloseBtn.addEventListener('click', function(e) {
+            console.log('Close PDF button clicked');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Close the modal
+            pdfModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            
+            // Remove modal after animation finishes
+            setTimeout(() => {
+                if (document.body.contains(pdfModal)) {
+                    document.body.removeChild(pdfModal);
+                }
+            }, 300);
+        });
+    }
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -319,21 +434,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
-
-// Close modal when clicking on it
-document.getElementById('imageModal').addEventListener('click', function(e) {
-    if (e.target === this || e.target.classList.contains('close-modal')) {
-        this.style.display = "none";
-        document.body.style.overflow = ''; // Restore scrolling
-    }
+    
+    // Add event listener for PDF view button
+    document.addEventListener('click', function(e) {
+        const viewPdfBtn = e.target.closest('.pdf-view-btn');
+        if (viewPdfBtn) {
+            e.preventDefault();
+            const pdfUrl = viewPdfBtn.getAttribute('data-pdf');
+            const pdfName = viewPdfBtn.getAttribute('data-name') || 'Document';
+            openPdfModal(pdfUrl, pdfName);
+        }
+    });
 });
 
 // Close modal with ESC key
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && imageModal.style.display === 'block') {
-        imageModal.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
+    if (e.key === 'Escape') {
+        const imageModal = document.getElementById('imageModal');
+        const pdfModal = document.querySelector('.pdf-modal.active');
+        
+        if (imageModal && imageModal.style.display === 'block') {
+            imageModal.style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+        
+        if (pdfModal) {
+            console.log('Closing PDF modal with ESC key');
+            pdfModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+            // Remove modal after animation completes
+            setTimeout(() => {
+                if (document.body.contains(pdfModal)) {
+                    document.body.removeChild(pdfModal);
+                }
+            }, 300);
+        }
     }
 });
 
@@ -342,68 +477,3 @@ function toggleLeftSidebar() {
     const leftSidebar = document.getElementById('options-container');
     leftSidebar.classList.toggle('active');
 }
-
-// Add PDF viewer functionality
-function openPdfViewer(pdfUrl, fileName) {
-    // Create modal container
-    const modal = document.createElement('div');
-    modal.className = 'pdf-modal';
-    modal.innerHTML = `
-        <div class="pdf-modal-content">
-            <div class="pdf-toolbar">
-                <div class="pdf-toolbar-title">${fileName}</div>
-                <div class="pdf-toolbar-actions">
-                    <a href="${pdfUrl}" download="${fileName}" class="download-pdf">
-                        <i class="fas fa-download"></i>
-                        Download
-                    </a>
-                    <button class="close-pdf">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="pdf-container">
-                <iframe src="${pdfUrl}" frameborder="0"></iframe>
-            </div>
-        </div>
-    `;
-
-    // Add to body
-    document.body.appendChild(modal);
-    
-    // Show modal
-    setTimeout(() => modal.classList.add('active'), 10);
-
-    // Handle close
-    const closeBtn = modal.querySelector('.close-pdf');
-    closeBtn.onclick = () => {
-        modal.classList.remove('active');
-        setTimeout(() => modal.remove(), 300);
-    };
-}
-
-// Add click handler for PDF links
-document.addEventListener('click', (e) => {
-    const pdfLink = e.target.closest('.details-pdf');
-    if (pdfLink) {
-        e.preventDefault();
-        const pdfUrl = pdfLink.href;
-        const fileName = pdfLink.getAttribute('download') || 'document.pdf';
-        openPdfViewer(pdfUrl, fileName);
-    }
-});
-
-// Handle PDF link clicks to open in new page
-document.addEventListener('click', function(e) {
-    const pdfLink = e.target.closest('.details-pdf');
-    if (pdfLink) {
-        e.preventDefault();
-        
-        // Get PDF URL and filename
-        const pdfUrl = pdfLink.getAttribute('href');
-        const pdfName = pdfLink.querySelector('span').textContent || 'document.pdf';
-        
-        // Open PDF in new page with parameters
-        window.open(`pdf-viewer.html?pdf=${encodeURIComponent(pdfUrl)}&name=${encodeURIComponent(pdfName)}`, '_blank');
-    }
-});

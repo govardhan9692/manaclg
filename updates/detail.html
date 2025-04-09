@@ -124,6 +124,26 @@
         <img class="modal-content" id="modalImage">
     </div>
 
+    <!-- Add PDF Modal for PDF viewing -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="pdf-modal-content">
+            <div class="pdf-toolbar">
+                <div class="pdf-toolbar-title">Document</div>
+                <div class="pdf-toolbar-actions">
+                    <a href="#" class="download-pdf" id="pdfDownloadBtn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <button class="close-pdf">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="pdf-container">
+                <iframe id="pdfFrame" src="about:blank" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="col">
             <p> © 2024, <a href="../index.html">MANACLG</a> ,All rights reserved. FOUNDED BY <a href="../index.html">DREAM
