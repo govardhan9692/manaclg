@@ -342,3 +342,68 @@ function toggleLeftSidebar() {
     const leftSidebar = document.getElementById('options-container');
     leftSidebar.classList.toggle('active');
 }
+
+// Add PDF viewer functionality
+function openPdfViewer(pdfUrl, fileName) {
+    // Create modal container
+    const modal = document.createElement('div');
+    modal.className = 'pdf-modal';
+    modal.innerHTML = `
+        <div class="pdf-modal-content">
+            <div class="pdf-toolbar">
+                <div class="pdf-toolbar-title">${fileName}</div>
+                <div class="pdf-toolbar-actions">
+                    <a href="${pdfUrl}" download="${fileName}" class="download-pdf">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </a>
+                    <button class="close-pdf">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="pdf-container">
+                <iframe src="${pdfUrl}" frameborder="0"></iframe>
+            </div>
+        </div>
+    `;
+
+    // Add to body
+    document.body.appendChild(modal);
+    
+    // Show modal
+    setTimeout(() => modal.classList.add('active'), 10);
+
+    // Handle close
+    const closeBtn = modal.querySelector('.close-pdf');
+    closeBtn.onclick = () => {
+        modal.classList.remove('active');
+        setTimeout(() => modal.remove(), 300);
+    };
+}
+
+// Add click handler for PDF links
+document.addEventListener('click', (e) => {
+    const pdfLink = e.target.closest('.details-pdf');
+    if (pdfLink) {
+        e.preventDefault();
+        const pdfUrl = pdfLink.href;
+        const fileName = pdfLink.getAttribute('download') || 'document.pdf';
+        openPdfViewer(pdfUrl, fileName);
+    }
+});
+
+// Handle PDF link clicks to open in new page
+document.addEventListener('click', function(e) {
+    const pdfLink = e.target.closest('.details-pdf');
+    if (pdfLink) {
+        e.preventDefault();
+        
+        // Get PDF URL and filename
+        const pdfUrl = pdfLink.getAttribute('href');
+        const pdfName = pdfLink.querySelector('span').textContent || 'document.pdf';
+        
+        // Open PDF in new page with parameters
+        window.open(`pdf-viewer.html?pdf=${encodeURIComponent(pdfUrl)}&name=${encodeURIComponent(pdfName)}`, '_blank');
+    }
+});

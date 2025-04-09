@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer - ManaClg</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #ededed;
+            --second-bg-color: #ededed;
+            --bg-hf-color: #ffffff;
+            --text-color: #081b29;
+            --main-color: #00abf0;
+            --logo-color: #ff2f00;
+            --update-bg: #ffffff;
+            --update-header-bg: #f8f9fa;
+            --update-border: #e0e0e0;
+            --update-text: #2c3e50;
+        }
+        
+        body.dark-mode {
+            --bg-color: #081b29;
+            --bg-hf-color: #081b29;
+            --second-bg-color: #112e42;
+            --text-color: #ededed;
+            --update-bg: #112e42;
+            --update-header-bg: #081b29;
+            --update-border: #1e4056;
+            --update-text: #ededed;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pdf-header {
+            background-color: var(--update-header-bg);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--update-border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .pdf-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--update-text);
+            flex: 1;
+            margin-right: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .pdf-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            color: var(--logo-color);
+        }
+        
+        .download-btn {
+            background-color: var(--logo-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(255, 47, 0, 0.2);
+        }
+        
+        .back-btn {
+            background-color: var(--update-header-bg);
+            color: var(--update-text);
+            border: 1px solid var(--update-border);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background-color: var(--update-bg);
+            transform: translateY(-2px);
+        }
+        
+        .pdf-container {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .pdf-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-title {
+                font-size: 1rem;
+            }
+            
+            .pdf-actions {
+                gap: 0.5rem;
+            }
+            
+            .download-btn, .back-btn {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pdf-header">
+        <button class="back-btn" onclick="window.close()">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back
+        </button>
+        <div class="pdf-title" id="pdfTitle">Loading PDF...</div>
+        <div class="pdf-actions">
+            <a href="#" class="download-btn" id="downloadBtn">
+                <i class="fa-solid fa-download"></i>
+                Download
+            </a>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="bx bxs-moon" id="themeIcon"></i>
+            </button>
+        </div>
+    </div>
+    <div class="pdf-container">
+        <iframe id="pdfFrame" class="pdf-iframe" src="about:blank"></iframe>
+    </div>
+
+    <script>
+        // Get parameters from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdfUrl = urlParams.get('pdf');
+        const pdfName = urlParams.get('name') || 'Document';
+        
+        // Set title
+        document.title = `PDF: ${pdfName} - ManaClg`;
+        document.getElementById('pdfTitle').textContent = pdfName;
+        
+        // Set download link
+        const downloadBtn = document.getElementById('downloadBtn');
+        downloadBtn.href = pdfUrl;
+        downloadBtn.setAttribute('download', pdfName);
+        
+        // Load PDF in iframe
+        document.getElementById('pdfFrame').src = pdfUrl;
+        
+        // Theme toggling
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        // Check for saved theme preference or parent window preference
+        try {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.replace('bxs-moon', 'bxs-sun');
+            }
+        } catch (e) {
+            console.error('Error accessing localStorage:', e);
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.replace('bxs-moon', 'bxs-sun');
+                try {
+                    localStorage.setItem('theme', 'dark');
+                } catch (e) {}
+            } else {
+                themeIcon.classList.replace('bxs-sun', 'bxs-moon');
+                try {
+                    localStorage.setItem('theme', 'light');
+                } catch (e) {}
+            }
+        });
+    </script>
+</body>
+</html>

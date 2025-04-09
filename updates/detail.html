@@ -16,7 +16,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="menu-icon" onclick="toggleLeftSidebar()">
+        <div class="menu-icon" onclick="openSidebar()">
             <span class="material-symbols-outlined">menu</span>
         </div>
 
@@ -51,9 +51,9 @@
                 menu
             </span></div>
         <nav class="sidebar" id="sidebar">
-            <div class="close-icon" onclick="closeSidebar()"><span class="material-symbols-outlined">
-                    close
-                </span></div>
+            <div class="close-icon" onclick="closeSidebar()">
+                <span class="material-symbols-outlined">close</span>
+            </div>
             <div class="box">
                 <a href="../information manaclg/our mission page/ourmission.html">Our Mission</a>
                 <a href="../information manaclg/about us page/aboutus.html">About Us</a>
@@ -143,7 +143,9 @@
 
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script src="./detail.js"></script>
+    <!-- Move script.js before detail.js -->
     <script src="../script.js"></script>
+    <script src="./script.js"></script>
+    <script src="./detail.js"></script>
 </body>
 </html>
