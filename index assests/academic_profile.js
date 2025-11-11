@@ -158,11 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (subbranch === "AI" && year === "2" && semester === "1") {
         url = "./academics/r23 jntuk/cse ai/2nd year/2-1 sem/subjects.html";
       } else if (subbranch === "Cyber Security" && year === "2" && semester === "1") {
-        url = "";
+        url = "./academics/r23 jntuk/csc/2nd year/2-1 sem/subjects.html";
       } else if (subbranch === "DS" && year === "2" && semester === "1") {
-        url = "";
-      } else if (subbranch === "AI" && year === "2" && semester === "1") {
-        url = "";
+        url = "./academics/r23 jntuk/csd/2nd year/2-1 sem/subjects.html";
+      } else if (subbranch === "AIML" && year === "2" && semester === "1") {
+        url = "./academics/r23 jntuk/csm/2nd year/2-1 sem/subjects.html";
       }
       window.location.href = url;
     }

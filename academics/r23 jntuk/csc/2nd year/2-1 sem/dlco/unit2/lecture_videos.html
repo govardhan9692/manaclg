@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNTUK AI Lecture Videos R23 - Mana Clg</title>
+    <meta name="description"
+        content="Watch comprehensive AI  lecture videos for JNTUH R23 students at Mana Clg. Our videos cover key topics and concepts to help you understand the subject better.">
+    <!-- <link rel="canonical" href="https://manaclg.com/jntuh-R23-AI -lecture-videos"> -->
+    <link rel="stylesheet" href="../../../../assests/lecture video page assets/lecturervideos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+    <!-- header design -->
+    <header class="header">
+        <div class="menu-icon" onclick="toggleLeftSidebar()">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+
+        <div id="logo-section"><a href="../../../../../../../index.html" class="logo">MANACLG</a>
+            <nav class="social-media">
+                <div class="sm"><a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a></div>
+                <div class="sm"><a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i
+                            class='bx bxl-instagram'></i></a></div>
+                <div class="sm"><a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i
+                            class='bx bxl-whatsapp'></i></a></div>
+                <div class="sm"><a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i
+                            class='bx bxl-youtube'></i></a></div>
+                <div class="sm"><a href="https://www.linkedin.com/in/mana-clg-006532295/"><i
+                            class='bx bxl-linkedin'></i></a></div>
+                <div class="sm"><a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div class="sm"><a href="https://www.facebook.com/profile.php?id=61551901873724"><i
+                            class='bx bxl-facebook'></i></a></div>
+                <div class="sm"><a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a></div>
+
+
+            </nav>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+            <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+            <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+            <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                Support</a>
+            <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+            <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+            <a href="#"><i class='bx bxs-moon' id="mode"></i></a>
+        </nav>
+        <div class="open-icon" onclick="openSidebar()"><span class="material-symbols-outlined menu-icon" id="menu">
+                menu
+            </span></div>
+        <nav class="sidebar" id="sidebar">
+            <div class="close-icon" onclick="closeSidebar()"><span class="material-symbols-outlined">
+                    close
+                </span></div>
+            <div class="box">
+                <a href="../../../../../../../information manaclg/our mission page/ourmission.html">Our Mission</a>
+                <a href="../../../../../../../information manaclg/about us page/aboutus.html">About Us</a>
+                <a href="../../../../../../../information manaclg/our updates page/ourupdates.html">Our Updates</a>
+                <a href="../../../../../../../information manaclg/help and support page/help&support.html">Help &
+                    Support</a>
+                <a href="../../../../../../../information manaclg/contact us page/contactus.html">Contact Us</a>
+                <a href="../../../../../../../information manaclg/disclaimer/disclaimer.html">Disclaimer</a>
+                <a href="#"><i class='bx bxs-moon' id="mode2"></i></a>
+                <div class="side-bar-copyrights">
+                    <p>&copy; <span id="currentYear"></span> , <a href="../../../../../../../index.html">MANACLG</a> .
+                        All rights reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <aside id="options-container" class="left-sidebar collapsed">
+            <a href="../../../../../../../index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="home">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </div>
+            </a>
+            <a href="../../../../../../../updates/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="updates">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updates</span>
+                </div>
+            </a>
+
+            <a href="../../../../../../../levelup/levelup.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="levelup">
+                    <i class="fas fa-level-up-alt"></i>
+                    <span>Level Up</span>
+                </div>
+            </a>
+
+
+            <a href="../../../../../../../profile/index.html" class="left-sidebar-icon">
+                <div class="left-sidebar-icon" id="profile">
+                    <i class="fa fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </a>
+        </aside>
+
+
+        <main class="content">
+
+            <div class="main-content">
+                <pre id="extra-space">
+
+
+                </pre>
+                <section>
+                    <a href="unit2.html" id="back-arrow"><span class="material-symbols-outlined"> arrow_back
+                        </span></a>
+                    <h3 class="title">AI</h3>
+                    <div class="addres">
+                        <p>Unit-2</p>
+                        <p>Lecture Videos</p>
+                    </div>
+                    <div class="container2">
+                        <div id="video_player" class="sticky">
+                            <iframe id="main-Video" width="100%" height="100%"
+                                src="https://www.youtube.com/embed/dRTNrDMoUs0?autoplay=1&mute=1" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="playlistBx">
+                            <div class="header2">
+                                <marquee class="row" id="summary-text" behavior="scroll" direction="left"
+                                    scrollamount="7">AI, syllabus Wise Unit-2 Lecture Videos</marquee>
+                            </div>
+                            <!-- -----------------------------------add button container below------------------------ -->
+                            <div class="button-container">
+                                <details>
+                                    <summary>Searching for Solutions</summary>
+                                    <button onclick="playVideo('4pbtXodU8Mw')">Lecture 1</button>
+                                    <button onclick="playVideo('AneIXxdu_g4')">Lecture 2</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Uninformed Search Strategies</summary>
+                                    <button onclick="playVideo('AneIXxdu_g4')">Lecture 1</button>
+                                    <button onclick="playVideo('cqE6WS2GFzA')">Lecture 2</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Breadth-First Search</summary>
+                                    <button onclick="playVideo('GfgdWpgBJ0A')">Lecture 1</button>
+                                    <button onclick="playVideo('qul0f79gxGs')">Lecture 2</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Depth-First Search</summary>
+                                    <button onclick="playVideo('UxXasZyx0Z0')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Search with Partial Information (Heuristic Search)</summary>
+                                    <button onclick="playVideo('GL28VbiFkD0')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Hill Climbing</summary>
+                                    <button onclick="playVideo('2SlO34_VsY4')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>A* Algorithm</summary>
+                                    <button onclick="playVideo('PzEWHH2v3TE')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>AO* Algorithm</summary>
+                                    <button onclick="playVideo('CexUzBDTdCc')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Problem Reduction</summary>
+                                    <button onclick="playVideo('du7ZmwQ3l7E')">Lecture 1</button>
+                                    <button onclick="playVideo('NiY32wS2UVw')">Lecture 2</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Game Playing</summary>
+                                </details>
+                            
+                                <details>
+                                    <summary>Adversarial Search</summary>
+                                </details>
+                            
+                                <details>
+                                    <summary>Games</summary>
+                                    <button onclick="playVideo('-BEGeyBhbSQ')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Mini-Max Algorithm</summary>
+                                    <button onclick="playVideo('tDv7lrklaQE')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Optimal Decisions in Multiplayer Games</summary>
+                                    <button onclick="playVideo('Ewk2ad30GC4')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Problems in Game Playing</summary>
+                                    <button onclick="playVideo('FFzdXJ49KAI')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Alpha-Beta Pruning</summary>
+                                    <button onclick="playVideo('_i-lZcbWkps')">Lecture 1</button>
+                                </details>
+                            
+                                <details>
+                                    <summary>Evaluation Functions</summary>
+                                    <button onclick="playVideo('55TAcdQ4uEc')">Lecture 1</button>
+                                </details>
+                            </div>
+                            
+                            
+
+                            <!-- ------------------------------------------------------------ -->
+
+                        </div>
+                    </div>
+                    <div class="syllabus-container">
+                        <p>Unit-2 Syllabus</p>
+                        <div class="syllabus">
+                            "UNIT - II
+                            Searching- Searching for solutions, uniformed search strategies – Breadth first search, depth
+                            first Search. Search with partial information (Heuristic search) Hill climbing, A* ,AO*
+                            Algorithms, Problem reduction, Game Playing-Adversial search, Games, mini-max
+                            algorithm, optimal decisions in multiplayer games, Problem in Game playing, Alpha-Beta
+                            pruning, Evaluation functions."
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+
+
+    <footer>
+        <div class="col">
+            <p>&copy; <span id="currentYear2"></span> , <a href="../../../../../../index.html">MANACLG</a> . All rights
+                reserved | FOUNDED BY <a href="../../../../../../../index.html">DREAM TEAM.</a></p>
+
+        </div>
+        <div class="socialIcons">
+            <a href="mailto:manaclgs@gmail.com"><i class='bx bxl-gmail'></i></a>
+            <a href="https://www.instagram.com/manaclg_?igsh=eWZqZDA0bXZ3NTgx"><i class='bx bxl-instagram'></i></a>
+            <a href="https://whatsapp.com/channel/0029VaHvP1QJ3juslZKe0o00"> <i class='bx bxl-whatsapp'></i></a>
+            <a href="https://youtube.com/@Manaclg?si=H0MB2nl1Uh5PapL3"><i class='bx bxl-youtube'></i></a>
+            <a href="https://www.linkedin.com/in/mana-clg-006532295/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://twitter.com/ManaClgs"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61551901873724"><i class='bx bxl-facebook'></i></a>
+            <a href="https://t.me/manaclg"><i class='bx bxl-telegram'></i></a>
+
+        </div>
+    </footer>
+
+
+
+
+    <script src="../../../../../../../assests/script.js"></script>
+    <script src="../../../../assests/lecture video page assets/lecturevideo.js"></script>
+
+
+</body>
+
+</html>
