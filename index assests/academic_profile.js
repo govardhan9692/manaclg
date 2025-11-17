@@ -167,6 +167,21 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = url;
     }
 
+    if (university === "Jntuk" && regulation === "R23" && branch === "CSE" && subbranch && year && semester) {
+      if (subbranch === "AID" && year === "3" && semester === "1") {
+        url = "./academics/r23 jntuk/aids/3rd year/3-1 sem/subjects.html";
+      } else if (subbranch === "AI" && year === "3" && semester === "1") {
+        url = "./academics/r23 jntuk/cse ai/3rd year/3-1 sem/subjects.html";
+      } else if (subbranch === "Cyber Security" && year === "3" && semester === "1") {
+        url = "./academics/r23 jntuk/csc/3rd year/3-1 sem/subjects.html";
+      } else if (subbranch === "DS" && year === "3" && semester === "1") {
+        url = "./academics/r23 jntuk/csd/3rd year/3-1 sem/subjects.html";
+      } else if (subbranch === "AIML" && year === "3" && semester === "1") {
+        url = "./academics/r23 jntuk/csm/3rd year/3-1 sem/subjects.html";
+      }
+      window.location.href = url;
+    }
+
 
 
 
