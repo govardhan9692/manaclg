@@ -1,17 +1,33 @@
 let quote = document.getElementById("quote");
 let author = document.getElementById("author");
-const api_url = "https://api.quotable.io/random";
+var api_url = "https://api.allorigins.win/raw?url=https://zenquotes.io/api/random";
 
 async function getQuote(url) {
-  const response = await fetch(url);
-  var data = await response.json();
-  console.log(data);
+  try {
+    // Add timestamp to prevent caching and get new quotes
+    const cacheBuster = `&t=${new Date().getTime()}`;
+    const response = await fetch(url + cacheBuster);
+    var data = await response.json();
+    console.log(data);
 
-  quote.innerHTML = `"${data.content}"`;
-  author.innerHTML = `..${data.author}`;
+    quote.innerHTML = `"${data[0].q}"`;
+    author.innerHTML = `..${data[0].a}`;
+  } catch (error) {
+    console.error("Error fetching quote:", error);
+    quote.innerHTML = `"Success is not final, failure is not fatal: it is the courage to continue that counts."`;
+    author.innerHTML = `..Winston Churchill`;
+  }
 }
 
 getQuote(api_url);
+
+// Add event listener for new quote button
+const newQuoteBtn = document.getElementById("new-quote");
+if (newQuoteBtn) {
+  newQuoteBtn.addEventListener("click", function() {
+    getQuote(api_url);
+  });
+}
 
 document.addEventListener("click", (e) => {
   const isDropdownButton = e.target.matches("[data-dropdown-button]");
